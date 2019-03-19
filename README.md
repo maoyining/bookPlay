@@ -2,6 +2,7 @@
 # 菜鸡要开始正式play sails.js啦
 ## 新建并启动一个项目
 
+**2019.3.19项目的新建**
 - 安装sails
 `npm install sails -g`
 - 新建一个sails的项目
