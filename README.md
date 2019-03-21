@@ -1,4 +1,4 @@
-# bookPlay出版、商用户、图书的故事
+# bookPlay出版商、用户和图书的故事
 
 ## 新建并启动一个项目
 
@@ -13,3 +13,7 @@
 - - 在package.json里面修改启动方式
 - - `"start": "nodemon app.js"`
 - - 最后`npm start`启动
+- 数据库的配置(在datastores.js里面可以看到提示)
+- - `npm install sails-mysql --save`,然后按着提示配置即可
+
+
