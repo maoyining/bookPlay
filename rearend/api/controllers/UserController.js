@@ -12,7 +12,7 @@ module.exports = {
         username:req.param('username'),
         password:req.param('password')
       })
-   
+      console.log(userInfo)
       if(userInfo[0]){ 
         console.log(userInfo)
         res.send(userInfo)

@@ -28,6 +28,9 @@ module.exports = {
     author:{
       type:'string'
     },
+    collectNum:{
+      type:'number'
+    },
     itsUser: {
       collection: 'user',
       via: 'book',

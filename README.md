@@ -15,13 +15,50 @@
 - - 最后`npm start`启动
 - 数据库的配置(在datastores.js里面可以看到提示)
 - - `npm install sails-mysql --save`,然后按着datastores.js里面的提示配置即可
-## 获取图书列表
-get: localhost:1337/book
-## 简单的登录功能
-post:localhost:1337/login
-参数:account、password
-登录成功返回当前用户的登录信息
-登录失败返回fail to login
-### 实现记住登录
+baseURL:`localhost:1337`
 
+## POST   /user/login  简单的登录功能
+query：
+- `account`  用户账号
+- `password` 用户密码
+#### success
+```
+[
+  {
+    "createdAt": 1553411403358,
+    "updatedAt": 1553411403358,
+    "id": 2,
+    "username": "myn2113",
+    "password": "123456",
+    "email": "2044964754@qq.com",
+    "admin": true
+  }
+]
+```
+#### fail
+fail to login
+### 用户收藏图书
+
+### GET   /book/getBookList 获取所有图书信息
+
+### GET  /book/getBookById  通过ID获取图书信息
+query:
+- `bookId`  图书id
+#### success
+```
+[
+  {
+    "createdAt": 1553309767037,
+    "updatedAt": 1553309767037,
+    "id": 4,
+    "bookName": "软件工程导论",
+    "bookPrice": 39.5,
+    "bookPub": "清华大学出版社",
+    "author": "张海藩",
+    "collectNum": 1
+  }
+]
+```
+#### fail 
+cant find this book,error
 
