@@ -14,6 +14,14 @@
 - - `"start": "nodemon app.js"`
 - - 最后`npm start`启动
 - 数据库的配置(在datastores.js里面可以看到提示)
-- - `npm install sails-mysql --save`,然后按着提示配置即可
+- - `npm install sails-mysql --save`,然后按着datastores.js里面的提示配置即可
+## 获取图书列表
+get: localhost:1337/book
+## 简单的登录功能
+post:localhost:1337/login
+参数:account、password
+登录成功返回当前用户的登录信息
+登录失败返回fail to login
+### 实现记住登录
 
 
