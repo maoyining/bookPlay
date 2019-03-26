@@ -62,7 +62,7 @@ module.exports = {
     
      
   },
-  //用户取消收藏图书
+  //用户取消收藏图书，有一个问题，就是removeFromColletion抛出错误问题
    userRemoveBook:async function(req,res){
     let userId=req.param('userId')
     let bookId=req.param('bookId')
