@@ -21,7 +21,7 @@ baseURL:`localhost:1337`
 query：
 - `account`  用户账号
 - `password` 用户密码
-#### success
+#### success 登陆成功返回用户信息
 ```
 [
   {
@@ -37,12 +37,18 @@ query：
 ```
 #### fail
 fail to login
-### 用户收藏图书
-
+### POST  /user/userAddBook用户收藏图书
+#### query:
+- `userId`
+- `bookId`
+### POST  /user/userRemoveBook 用户取消收藏图书
+#### query:
+- `userId`
+- `bookId`
 ### GET   /book/getBookList 获取所有图书信息
 
 ### GET  /book/getBookById  通过ID获取图书信息
-query:
+#### query:
 - `bookId`  图书id
 #### success
 ```
