@@ -26,25 +26,43 @@ module.exports = {
   userAddBook:async function(req,res){
     let userId=req.param('userId')
     let bookId=req.param('bookId')
+    
     var userInfo= await User.find({
        id:userId,
     })
     var bookInfo=await Book.find({
       id:bookId
     })
-   // console.log(userInfo[0])
-   // console.log(bookInfo[0])
+    console.log(userInfo[0])
+    console.log(bookInfo[0])
     if(userInfo[0]&&bookInfo[0]){
-      await User.addToCollection(userId, 'book', bookId);
-      info = await User.find({ id:userId }).populate('book');
-      res.send(info)
+    
+      try {
+        //用户收藏图书添加联系
+        await User.addToCollection(userId, 'book', bookId);
+        //收藏成功的话就collectNum+1
+        info = await Book.find({ id:bookId }).populate('itsUser');
+        let collectNum=info[0].collectNum+1
+  
+        await Book.update({id:bookId})
+        .set({
+            collectNum:collectNum
+        })
+      
+        res.send(info)
+      }catch(err){
+        res.send(err)
+      }
+      //info = await User.find({ id:userId }).populate('book');
+      
+
     }else{
       res.send('fail to collect or you have already collect it')
     }
     
      
   },
-  //用户取消收藏图书
+  //用户取消收藏图书，有一个问题，就是removeFromColletion抛出错误问题
    userRemoveBook:async function(req,res){
     let userId=req.param('userId')
     let bookId=req.param('bookId')
@@ -56,13 +74,25 @@ module.exports = {
      id:bookId
    })
    if(userInfo[0]&&bookInfo[0]){
-      let info = await User.find({ id:userId }).populate('book');
-        //console.log(userInfo[0])
-      // console.log(bookInfo[0])
-      await User.removeFromCollection(userId, 'book', bookId);
-      res.send(info)
+     // let info = await User.find({ id:userId }).populate('book');
+      try{
+        await User.removeFromCollection(userId, 'book', bookId);
+
+        info = await Book.find({ id:bookId }).populate('itsUser');
+     // for(i=0;i<info[0].)
+        let collectNum=info[0].collectNum-1
+        await Book.update({id:bookId})
+        .set({
+            collectNum:collectNum
+        })
+        res.send(info)
+      }catch(err){
+        res.send(err)
+      }
+      
+      //res.send(info) 
    }else{
-     res.send("Fail to remove because the user or book is not exit")
+      res.send("Fail to remove maybe because the user or book is not exit")
    }
   }
   
