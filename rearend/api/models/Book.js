@@ -22,19 +22,22 @@ module.exports = {
      
       type:'number',
     },
-    bookPub:{
+    bookPub:{ 
       type:'string',
     },
     author:{
       type:'string'
     },
-    collectNum:{
-      type:'number'
+    ISBN:{
+      type:'string'
     },
-    itsUser: {
+    imageUrl:{
+      type:'string'
+    },
+    user: {
       collection: 'user',
       via: 'book',
-      
+       
     }
     
    

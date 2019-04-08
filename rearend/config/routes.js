@@ -20,10 +20,21 @@ module.exports.routes = {
   ***************************************************************************/
 
   '/': { view: 'pages/homepage' },
+ 
+  'GET /books':  {action: 'book/get-book-list' } ,
+  'GET /book/:id?':  {action:'book/get-book-by-id'},
+  'GET /user/:username?/:password?':  {action:'user/login'},
+  'GET /user/like/:userId?':{action:'user/get-favorite-book'},
 
-
+  'POST /user':{action:'user/signin'},
+  'POST /like':{action:'user/user-add-book'},
+  'POST /unlike':{action:'user/user-remove-book'},
+  'POST /book':{action:'book/add-book'},
+  'DELETE /book':{action:'book/delete-book'},
+  'POST /user/img':{action:'user/upload-images'}
+  //'GET /myn':'UserController.test',
   /***************************************************************************
-  *                                                                          *
+  *                                                                           *
   * More custom routes here...                                               *
   * (See https://sailsjs.com/config/routes for examples.)                    *
   *                                                                          *

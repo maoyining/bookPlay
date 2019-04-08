@@ -30,13 +30,13 @@ module.exports = {
     },
     admin:{
       type:'boolean'
-    },
+    }, 
     book: {
       collection: 'book',
-      via: 'itsUser',
-      
+      via: 'user',
+       
     }
   },
-
+ 
 };
 
