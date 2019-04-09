@@ -51,8 +51,9 @@ export default {
         
         .then(function(response){
             console.log(response.data);
-            that.$router.push({path:'/booklist'});
-
+            that.useid=response.data.info.id;
+            console.log("我是用户的id"+ that.useid);
+            that.$router.push({path:'/booklist/'+ that.useid});
         })
         .catch(function(error){
             console.log(error);
