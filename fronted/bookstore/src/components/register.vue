@@ -1,16 +1,14 @@
 <template>
-   
         <div class="loginin" >
-            
             <div class="login">
                 <p id="image_logo"><img src="/static/images/登录.png"></p>
                 <form action='' method="post">
                     <p><label class="label_input">用户名</label><input v-model="username" placeholder="用户名" value="username"></p>
                     <p><label class="label_input">用户密码</label><input v-model="password" placeholder="请输入密码" type="password" value="password"></p>
+                     <p><label class="label_input">邮箱</label><input v-model="email" placeholder="邮箱" value="email"></p>
                     <div id="login_control">
-                        <button form-type='submit' @click="submitLogin($event)">登录</button>
-                        <button><router-link to="/register">注册</router-link></button>
-                        <button>忘记密码</button>
+                        <button form-type='submit' @click="submitRegister($event)">注册</button>
+                        <button>重置</button>
                     </div>
                 </form>
             </div>
@@ -20,33 +18,41 @@
 <script>
 import axios from 'axios';
 export default {
-    name:"Login",
+    name:"register",
     data () {
     return {
-      msg: 'Welcome to loginin',
+      msg: 'Welcome to register',
       username:'',
       password:'',
+      email:''
     
     } 
     } ,
     methods:{
-    submitLogin(event){
+    submitRegister(event){
         let that=this;
         event.preventDefault();
         let account=JSON.stringify(this.username);
-        console.log(account);
+        //console.log(account);
         let password=JSON.stringify(this.password);
-        console.log(password);
+        //console.log(password);
+        let email=JSON.stringify(this.email);
+        //console.log(email);
        axios({
-            method:'GET',
-            url:'/api/user/'+this.username+'/'+this.password,
+            method:'POST',
+            url:'/api/user',
+            data:{
+                username:this.username,
+                password:this.password,
+                email:this.email
+            }
             
         })
+        
         .then(function(response){
             console.log(response.data);
-            if(response.data=='fail to login')
-              alert(response.data);
             that.$router.push({path:'/booklist'});
+
         })
         .catch(function(error){
             console.log(error);
