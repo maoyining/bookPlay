@@ -1,5 +1,5 @@
 module.exports = {
-    //通过ID获取图书信息
+    //传入图书id,了解到有多少人收藏了这本书
      friendlyName:'check books by id',
      description: 'Look up the specified book',
      inputs:{
@@ -11,23 +11,22 @@ module.exports = {
      },
      exits: {
        success: {
-         statusCode:200,
-        
+         statusCode:200,       
        },
        fail: {
          statusCode:400,
        }
      },
      fn:async function(inputs,exits){
-          // let bookId=this.req.param('id')
+  
           let info=await Book.find({
             id:inputs.id
           }).populate('user')
            if(info[0]){
               return exits.success({
-                info:info[0]
+                num:info[0].user.length
               }); 
-          //res.status(200).send(info)
+         
            }else{
              return exits.fail();
            }

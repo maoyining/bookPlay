@@ -113,7 +113,7 @@ baseURL:`localhost:1337`
 }
 ```
 
-### POST /user 用户注册
+### POST /user 用户注册，
 **传参**
 - username:用户名
 - password:密码
@@ -126,6 +126,12 @@ baseURL:`localhost:1337`
 }  
 ```
 **返回 201**
+- 返回用户id
+```
+{
+  id:3
+}
+```
 ```
 {
   "info": "signin in successfully"

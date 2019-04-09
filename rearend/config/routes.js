@@ -34,7 +34,7 @@ module.exports.routes = {
 
   'DELETE /book':{action:'book/delete-book'},
 
-  'POST /user/img':{action:'user/upload-images'}
+  'POST /book/img':{action:'user/upload-images'}
   //'GET /myn':'UserController.test',
   /***************************************************************************
   *                                                                           *
