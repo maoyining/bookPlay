@@ -4,7 +4,8 @@ import HelloWorld from '@/components/HelloWorld'
 import loginin from '@/components/loginin.vue'
 import bookList from '@/components/bookList.vue'
 import home from '@/components/home.vue'
-import BookmanBooklist from '@/components/BookmanBooklist.vue'
+import register from '@/components/register.vue'
+
 Vue.use(Router)
 
 export default new Router({
@@ -16,7 +17,7 @@ export default new Router({
     },
     {
       path:'/booklist',
-      name:'bookList',
+      name:'booklist',
       component:bookList
     },
     {
@@ -25,12 +26,10 @@ export default new Router({
       component:home
     },
     {
-      path:'/bookman/booklist',
-      name:'bookman.booklist',
-      component:BookmanBooklist
-      
-
+      path:'/register',
+      name:'register',
+      component:register
     }
-
+    
   ]
 })
