@@ -1,5 +1,5 @@
 <template>
-   
+
         <div class="loginin" >
             
             <div class="login">
@@ -26,7 +26,7 @@ export default {
       msg: 'Welcome to loginin',
       username:'',
       password:'',
-    
+
     } 
     } ,
     methods:{
@@ -46,7 +46,9 @@ export default {
             console.log(response.data);
             if(response.data=='fail to login')
               alert(response.data);
-            that.$router.push({path:'/booklist'});
+            that.useid=response.data.info.id;
+            console.log("我是用户的id"+ that.useid);
+            that.$router.push({path:'/booklist/'+ that.useid});
         })
         .catch(function(error){
             console.log(error);
