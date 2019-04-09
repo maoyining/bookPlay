@@ -30,7 +30,9 @@ module.exports.routes = {
   'POST /like':{action:'user/user-add-book'},
   'POST /unlike':{action:'user/user-remove-book'},
   'POST /book':{action:'book/add-book'},
+
   'DELETE /book':{action:'book/delete-book'},
+
   'POST /user/img':{action:'user/upload-images'}
   //'GET /myn':'UserController.test',
   /***************************************************************************

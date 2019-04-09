@@ -1,14 +1,21 @@
 module.exports={
-
-  upload: function  (req, res) {
-    req.file('avatar').upload(function (err, files) {
-      if (err)
-        return res.serverError(err);
-
-      return res.json({
-        message: files.length + ' file(s) uploaded successfully!',
-        files: files
-      });
-    });
+exits:{
+  success: {
+    description:'signin successfully',
+    statusCode:201,
+  },
+  fail: {
+    description: 'fail to signin',
+    statusCode:400,
   }
+},
+  fn: function(exits) {
+    
+    this.req.file('avatar').upload({
+      dirname: require('path').resolve(sails.config.appPath, 'assets/images')
+    },function (err, uploadedFiles) {
+      if (err) return exits.success();
+      return '555';//这个地方遇到一个问题
+    });
+  } 
 } 
