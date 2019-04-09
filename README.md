@@ -17,66 +17,123 @@
 - - `npm install sails-mysql --save`,然后按着datastores.js里面的提示配置即可
 baseURL:`localhost:1337`
 
-## POST   /user/login  简单的登录功能
-query：
-- `account`  用户账号
-- `password` 用户密码
-#### success 登陆成功返回用户信息
+#### GET /books  获取所有图书信息
 ```
 [
   {
-    "createdAt": 1553411403358,
-    "updatedAt": 1553411403358,
+    "createdAt": 1554451466912,
+    "updatedAt": 1554451466912,
+    "id": 1,
+    "bookName": "这些人,那些事",
+    "bookPrice": 28,
+    "bookPub": "译林出版社",
+    "author": "吴念真",
+    "ISBN": "9787544717731",
+    "imageUrl": ""
+  },
+  {
+    "createdAt": 1554451473634,
+    "updatedAt": 1554451473634,
     "id": 2,
+    "bookName": "局外人",
+    "bookPrice": 28,
+    "bookPub": "江苏凤凰文艺出版社",
+    "author": "阿尔贝·加缪",
+    "ISBN": "9787559427434",
+    "imageUrl": ""
+  }
+]
+  ```
+#### GET /book/1 获取id为1的图书信息(即通过id获取图书信息)
+```
+{
+  "info": {
+    "createdAt": 1554451466912,
+    "updatedAt": 1554451466912,
+    "id": 1,
+    "bookName": "这些人,那些事",
+    "bookPrice": 28,
+    "bookPub": "译林出版社",
+    "author": "吴念真",
+    "ISBN": "9787544717731",
+    "imageUrl": ""
+  }
+}
+```
+#### GET /user/myn2113/123456  获取用户名为myn2113,密码为123456的用户的用户信息
+```
+{
+  "info": {
+    "createdAt": 1554523148544,
+    "updatedAt": 1554523148544,
+    "id": 1,
     "username": "myn2113",
     "password": "123456",
     "email": "2044964754@qq.com",
-    "admin": true
+    "admin": false
   }
-]
+}
 ```
-#### fail
-fail to login
-### POST  /user/userAddBook用户收藏图书
-#### query:
-- `userId`
-- `bookId`
-### POST  /user/userRemoveBook 用户取消收藏图书
-#### query:
-- `userId`
-- `bookId`
-### GET   /book/getBookList 获取所有图书信息
+#### GET /user/like/1  获取id为1的用户的所有收藏的图书 如:
 ```
- {
-    "createdAt": 1553308108895,
-    "updatedAt": 1553308108895,
+{
+  "info": {
+    "book": [
+      {
+        "createdAt": 1554473029084,
+        "updatedAt": 1554473029084,
+        "id": 5,
+        "bookName": "撒哈拉的故事",
+        "bookPrice": 24,
+        "bookPub": "皇冠出版社",
+        "author": "三毛",
+        "ISBN": "9789573305545",
+        "imageUrl": ""
+      },
+      {
+        "createdAt": 1554451477655,
+        "updatedAt": 1554451477655,
+        "id": 3,
+        "bookName": "罗生门",
+        "bookPrice": 28,
+        "bookPub": "开明出版社",
+        "author": "芥川龙之介",
+        "ISBN": "9787513139144",
+        "imageUrl": ""
+      }
+    ],
+    "createdAt": 1554523148544,
+    "updatedAt": 1554523148544,
     "id": 1,
-    "bookName": "计算机组成原理与系统结构",
-    "bookPrice": 44,
-    "bookPub": "高等教育出版社",
-    "author": "包键",
-    "collectNum": 2
+    "username": "myn2113",
+    "password": "123456",
+    "email": "2044964754@qq.com",
+    "admin": false
   }
+}
 ```
-### GET  /book/getBookById  通过ID获取图书信息
 
-#### query:
-- `bookId`  图书id
-#### success
+#### POST /user
+**传参**
+- username:用户名
+- password:密码
+- email:邮箱
 ```
-[
-  {
-    "createdAt": 1553309767037,
-    "updatedAt": 1553309767037,
-    "id": 4,
-    "bookName": "软件工程导论",
-    "bookPrice": 39.5,
-    "bookPub": "清华大学出版社",
-    "author": "张海藩",
-    "collectNum": 1
-  }
-]
+{
+    "username":"XXXX",
+    "password":"XXXXX",
+    "email":"XXXXX"
+}
 ```
-#### fail 
-cant find this book,error
+**返回 201**
+```
+{
+  "info": "signin in successfully"
+}
+```
+
+  'POST /like':{action:'user/user-add-book'},
+  'POST /unlike':{action:'user/user-remove-book'},
+  'POST /book':{action:'book/add-book'},
+  'DELETE /book':{action:'book/delete-book'}
 
