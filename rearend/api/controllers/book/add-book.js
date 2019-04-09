@@ -21,11 +21,8 @@ module.exports={
         ISBN:{
             type:'string',
             required:true,
-        },
-        imgURL:{
-            type:'string',
-            allowNull:true,
         }
+        
     },
     exits: { 
         success: {
@@ -45,7 +42,7 @@ module.exports={
                 bookPub:inputs.bookPub,
                 author:inputs.author,
                 ISBN:inputs.ISBN,
-                imgUrl:inputs.imgUrl,
+                
 
             }).intercept((err)=>{
                     return exits.fail({

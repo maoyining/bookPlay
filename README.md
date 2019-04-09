@@ -17,7 +17,7 @@
 - - `npm install sails-mysql --save`,然后按着datastores.js里面的提示配置即可
 baseURL:`localhost:1337`
 
-#### GET /books  获取所有图书信息
+### GET /books  获取所有图书信息
 ```
 [
   {
@@ -44,7 +44,7 @@ baseURL:`localhost:1337`
   }
 ]
   ```
-#### GET /book/1 获取id为1的图书信息(即通过id获取图书信息)
+### GET /book/1 获取id为1的图书信息(即通过id获取图书信息)
 ```
 {
   "info": {
@@ -60,7 +60,7 @@ baseURL:`localhost:1337`
   }
 }
 ```
-#### GET /user/myn2113/123456  获取用户名为myn2113,密码为123456的用户的用户信息
+### GET /user/myn2113/123456  获取用户名为myn2113,密码为123456的用户的用户信息
 ```
 {
   "info": {
@@ -74,7 +74,7 @@ baseURL:`localhost:1337`
   }
 }
 ```
-#### GET /user/like/1  获取id为1的用户的所有收藏的图书 如:
+### GET /user/like/1  获取id为1的用户的所有收藏的图书 如:
 ```
 {
   "info": {
@@ -113,7 +113,7 @@ baseURL:`localhost:1337`
 }
 ```
 
-#### POST /user
+### POST /user
 **传参**
 - username:用户名
 - password:密码
@@ -123,7 +123,7 @@ baseURL:`localhost:1337`
     "username":"XXXX",
     "password":"XXXXX",
     "email":"XXXXX"
-}
+}  
 ```
 **返回 201**
 ```
@@ -131,9 +131,72 @@ baseURL:`localhost:1337`
   "info": "signin in successfully"
 }
 ```
+### POST /like
+**传参**
+- userId:用户Id
+- bookId:图书Id
+```
+{
+    "userId":1,
+    "bookId":4
+}
+```
+**返回 200**
 
-  'POST /like':{action:'user/user-add-book'},
-  'POST /unlike':{action:'user/user-remove-book'},
-  'POST /book':{action:'book/add-book'},
-  'DELETE /book':{action:'book/delete-book'}
+```
+{
+  "info": "success to collect"
+}
+```
+### POST /unlike
+**传参**
+- userId:用户Id
+- bookId:图书Id
+```
+{
+    "userId":1,
+    "bookId":4
+}
+```
+**返回 200**
+
+```
+{
+  "info": "remove successfully!"
+}
+```
+### POST /book
+**传参**
+- bookName:图书名称
+- bookPrice：图书价格
+- bookPub:图书出版社
+- author:图书作者
+- ISBN:图书编号
+
+```
+{
+    "bookName":"xxxxxx",
+    "bookPrice":24,
+    "bookPub":"xxxxxx",
+    "author":"xxxxxxx",
+    "ISBN":"xxxxxx",
+}
+```
+**返回 201**
+```
+{
+  "info": "add a book successfully"
+}
+```
+### DELETE /book
+**传参**
+```
+{
+    "bookName":"xxxxx",
+    "ISBN":"xxxxx"
+}
+```
+**返回**
+- 删除成功返回204
+- 失败返回400
 
