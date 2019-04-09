@@ -23,13 +23,14 @@ module.exports.routes = {
  
   'GET /books':  {action: 'book/get-book-list' } ,
   'GET /book/:id?':  {action:'book/get-book-by-id'},
+  //用户登录的路由怎么写比较合适
   'GET /user/:username?/:password?':  {action:'user/login'},
   'GET /user/like/:userId?':{action:'user/get-favorite-book'},
   'GET /book/like/:id?':{action:'book/count-collect-user'},
 
   'POST /user':{action:'user/signin'},
-  'POST /like':{action:'user/user-add-book'},
-  'POST /unlike':{action:'user/user-remove-book'},
+  'POST /like':{action:'user/user-add-book'},//用户收藏
+  'POST /unlike':{action:'user/user-remove-book'},//用户取消收藏
   'POST /book':{action:'book/add-book'},
 
   'DELETE /book':{action:'book/delete-book'},
