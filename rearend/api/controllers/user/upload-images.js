@@ -15,7 +15,7 @@ exits:{
       dirname: require('path').resolve(sails.config.appPath, 'assets/images')
     },function (err, uploadedFiles) {
       if (err) return exits.success();
-      return '555';//这个地方遇到一个问题
+      return '555';//这个地方遇到一个问题,返回不回去
     });
   } 
 } 

@@ -27,7 +27,7 @@ module.exports = {
           if(info[0]){
             return exits.success({
               info:info[0]
-            });
+            }); 
             //this.res.status(200).send(info)
           }else{
             return exits.notFound();

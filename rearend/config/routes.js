@@ -25,6 +25,7 @@ module.exports.routes = {
   'GET /book/:id?':  {action:'book/get-book-by-id'},
   'GET /user/:username?/:password?':  {action:'user/login'},
   'GET /user/like/:userId?':{action:'user/get-favorite-book'},
+  'GET /book/like/:id?':{action:'book/count-collect-user'},
 
   'POST /user':{action:'user/signin'},
   'POST /like':{action:'user/user-add-book'},

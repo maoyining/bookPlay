@@ -35,9 +35,14 @@ module.exports={
                     username:inputs.username,
                     password:inputs.password,
                     email:inputs.email,
-            })
+                })
+                var info=await User.findOne({
+                  username:inputs.username,
+                  password:inputs.password,
+                  email:inputs.email,
+                })
             return exits.success({
-                info:'signin in successfully'
+                userId:info.id
             })
         }catch(err){
             return exits.fail({
