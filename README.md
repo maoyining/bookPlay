@@ -113,7 +113,7 @@ baseURL:`localhost:1337`
 }
 ```
 
-### POST /user
+### POST /user 用户注册
 **传参**
 - username:用户名
 - password:密码
@@ -131,7 +131,7 @@ baseURL:`localhost:1337`
   "info": "signin in successfully"
 }
 ```
-### POST /like
+### POST /like 用户收藏喜欢的图书
 **传参**
 - userId:用户Id
 - bookId:图书Id
@@ -148,7 +148,7 @@ baseURL:`localhost:1337`
   "info": "success to collect"
 }
 ```
-### POST /unlike
+### POST /unlike 用户把喜欢的图书从收藏移除
 **传参**
 - userId:用户Id
 - bookId:图书Id
@@ -165,7 +165,7 @@ baseURL:`localhost:1337`
   "info": "remove successfully!"
 }
 ```
-### POST /book
+### POST /book 管理员添加图书
 **传参**
 - bookName:图书名称
 - bookPrice：图书价格
@@ -188,7 +188,7 @@ baseURL:`localhost:1337`
   "info": "add a book successfully"
 }
 ```
-### DELETE /book
+### DELETE /book 删除图书
 **传参**
 ```
 {
