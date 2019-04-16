@@ -28,12 +28,12 @@ module.exports = {
     if (userInfo[0] && bookInfo[0]) {
       try {
         await User.removeFromCollection(inputs.userId, 'book', inputs.bookId);
-        return exits.success({ info: 'remove successfully!' })
+        return exits.success({ info: true })
       } catch (err) {
-        return exits.fail({ info: 'error!' })
+        return exits.fail({ info: false })
       }
     } else {
-      return exits.fail({ info: 'error!' })
+      return exits.fail({ info: false })
     }
   }
 }

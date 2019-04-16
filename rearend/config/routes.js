@@ -33,10 +33,9 @@ module.exports.routes = {
   'POST /like':{action:'user/user-add-book'},//用户收藏
   'POST /unlike':{action:'user/user-remove-book'},//用户取消收藏
   'POST /book':{action:'book/add-book'},
-
+  'POST /book/img':{action:'user/upload-images'},
+  
   'DELETE /book':{action:'book/delete-book'},
-
-  'POST /book/img':{action:'user/upload-images'}
   //'GET /myn':'UserController.test',
   /***************************************************************************
   *                                                                           *

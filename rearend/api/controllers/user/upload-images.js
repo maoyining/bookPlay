@@ -1,4 +1,6 @@
 module.exports = {
+  friendlyName:'为特定id的图书上传图片',
+
   inputs:{
     id:{
       type:'number',
@@ -23,7 +25,10 @@ module.exports = {
     }, function (err, uploadedFiles) {
 
       if (err) return exits.fail();
-      return exits.success();
+      else{
+        
+        return exits.success();
+      }
 
     });
   }

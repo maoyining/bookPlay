@@ -40,13 +40,13 @@ module.exports = {
       try {
         //用户收藏图书添加联系
         await User.addToCollection(inputs.userId, 'book', inputs.bookId);
-        return exits.success({ info: 'success to collect' })
+        return exits.success({ info: true })
       } catch (err) {
-        return exits.fail({ info: 'fail to collect' })
+        return exits.fail({ info: false })
       }
 
     } else {
-      return exits.fail({ info: 'fail to collect' })
+      return exits.fail({ info: false })
     }
   }
 }
