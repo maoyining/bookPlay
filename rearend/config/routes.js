@@ -23,6 +23,7 @@ module.exports.routes = {
  
   'GET /books':  {action: 'book/get-book-list' } ,
   'GET /book/:id?':  {action:'book/get-book-by-id'},
+  'GET /book/key/:keyWords?':  {action:'book/search'},
   //用户登录的路由怎么写比较合适
   'GET /user/:username?/:password?':  {action:'user/login'},
   'GET /user/like/:userId?':{action:'user/get-favorite-book'},

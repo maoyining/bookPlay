@@ -16,7 +16,12 @@
 - 数据库的配置(在datastores.js里面可以看到提示)
 - - `npm install sails-mysql --save`,然后按着datastores.js里面的提示配置即可
 baseURL:`localhost:1337`
-
+### sails.js踩坑笔记
+- 定制路由的时候controller的命名问题
+  比如controller/user下有一个get-book-list.js的控制器
+  给这个js文件命名的时候就千万要注意了，不能写成getBookList.js的形式，会访问不到
+- 在自己定义的控制器里如果要用req,res就要在前面加上this.req,this.res
+- postman测试时的相关问题
 ### GET /books  获取所有图书信息
 ```
 [
