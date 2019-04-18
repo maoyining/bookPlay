@@ -153,6 +153,7 @@ baseURL:`localhost:1337`
 ```
 ### GET /book/key/关键词   根据图书名称，作者，出版社模糊查询
 例如: GET /book/key/上帝，查询到
+```
 {
   "info": [
     {
@@ -179,7 +180,7 @@ baseURL:`localhost:1337`
     }
   ]
 }
-
+```
 ### POST /like 用户收藏喜欢的图书
 - 获取之前必须登录
 **传参**
