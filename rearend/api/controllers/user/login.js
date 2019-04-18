@@ -33,8 +33,11 @@ module.exports = {
       username: inputs.username,
       password: inputs.password,
     })
-    console.log(userInfo)
+  
     if (userInfo) {
+   
+      this.req.session.userId = userInfo.id;
+      this.req.session.admin = userInfo.admin;
       return exits.success({info: userInfo})
     } else {
       return exits.fail()

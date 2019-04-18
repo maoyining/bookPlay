@@ -21,7 +21,7 @@ module.exports = {
     fail: {
       description: 'fail to collect',
       statusCode: 403,
-    }
+    },
   },
 
   //实现函数

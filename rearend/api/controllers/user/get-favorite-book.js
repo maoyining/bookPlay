@@ -18,17 +18,23 @@ module.exports = {
     notFound: {
       description: 'No book with the specified ID was found in the database.',
       responseType: 'notFound'
+    },
+    forbbiden:{
+      statusCode:403
     }
   },
 
   fn: async function (inputs, exits) {
     
     let info = await User.find({id: inputs.userId}).populate('book')
-    if (info[0]) {
-      return exits.success({info: info[0]});
+    console.log(this.req.session.userId)
+    if (info[0]&&this.req.session.userId==inputs.userId) {
+      return exits.success({info: info[0].book});
     } else {
-      return exits.notFound();
+      return exits.forbbiden({info:"forbbiden"});
     }
+    
+    
   }
 
 };
