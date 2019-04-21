@@ -17,7 +17,7 @@ module.exports = {
     },
     forbbiden:{
       statusCode:403,
-    }
+    } 
   },
 
   //这个function里面的inputs,exits参数必须是以这样的形式来写,不能只写一个exits
