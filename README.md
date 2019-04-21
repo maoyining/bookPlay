@@ -261,9 +261,28 @@ baseURL:`localhost:1337`
     "ISBN":"xxxxx"
 }
 ```
+### PUT /book/{bookId}
+- 只有图书管理员才能进行此操作
+**传参**
+```
+{
+    "bookName": "测试",
+    "bookPrice":44,
+    "bookPub": "1",
+    "author": "1",
+    "ISBN":"123456"
+}
+```
 **返回**
-- 删除成功返回204
-- 失败返回400
+- statusCode:200
+```
+{
+  "info": "update a book successfully"
+}
+```
+**返回**
+- 删除成功statusCode:204
+- 失败返回statusCode:400
 ### POST /book/img  上传图书的图片
 - 只有管理员才能进行此项操作
 - bookId图书Id
