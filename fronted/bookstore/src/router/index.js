@@ -3,11 +3,14 @@ import Router from 'vue-router'
 
 import loginin from '@/components/loginin.vue'
 import bookList from '@/components/bookList.vue'
-import home from '@/components/home.vue'
+
 import register from '@/components/register.vue'
 import bookDetail from '@/components/bookDetail.vue'
-import addBook from '@/components/addBook.vue' 
-
+import addBook from '@/components/addBook.vue'
+import footer from '@/components/footer.vue' 
+import mylike from '@/components/mylike.vue'
+import my from '@/components/my.vue'
+import adminuser from '@/components/bookControl.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -18,14 +21,15 @@ export default new Router({
       component: loginin
     },
     {
-      path:'/booklist/:id',
+      path:'/books/:id',
       name:'booklist',
       component:bookList
     },
     {
       path:'/',
-      name:'home',
-      component:home
+      name:'books',
+      component:bookList,
+      footer
     },
     {
       path:'/register',
@@ -33,7 +37,7 @@ export default new Router({
       component:register
     },
     {
-      path:'/booklist/bookDetail/:id',
+      path:'/books/show/:id',
       name:'bookDetail',
       component:bookDetail
     },
@@ -42,7 +46,23 @@ export default new Router({
       name:'addBook',
       component:addBook
 
+    },
+    {
+      path:'/mylike',
+      name:'mylike',
+      component:mylike
+    },
+    {
+      path:'/my',
+      name:'my',
+      component:my
+    },
+    {
+      path:'/admin',
+      name:'admin',
+      component:adminuser
     }
+    
     
   ]
 })

@@ -1,12 +1,12 @@
 <template>
-    <div class="bookList">
+    <div class="mylike">
       <h4>{{msg}}</h4>
         <div >
           <div class="footer1"  >
              <div class="city1" v-for="(name,index) in booklist " :key="index" @click="toBookDetail(name.id) "> <img :src="getImageUrl(name.imageUrl)" alt="" style="height:100px">
                    <div > {{ name.bookName }} </div> </div>
            </div>
-          <myfooter></myfooter>
+          
     </div>
     </div>
 </template>
@@ -17,30 +17,28 @@ import myfooter from './footer.vue'
 export default {
      data () {
         return {
-            msg: '欢迎来到书城',
+            msg: '欢迎来到mylike',
             booklist: [],
             
             userid:'',
-            
-            
             
             imageSrc:'/static/images/书.png'
             
     }
   },
-  components:{myfooter},
+ 
   mounted:function(){
     let that=this;
-    
-    console.log("我是用户的id" +that.$store.state.userid);
+    that.userid=that.$store.state.userid;
+   
     axios({
             method:'GET',
-            url:'/api/books',
+            url:'/api/user/like/'+that.userid,
            
         })
         .then(function(response){
             console.log(response);
-            let _data=response.data;
+           let _data=response.data.info;
             that.booklist = _data;
             
             console.log(that.booklist);
@@ -48,6 +46,8 @@ export default {
         })
         .catch(function(error){
             console.log(error);
+            if(error='Error: Request failed with status code 403')
+            that.$router.push({ path:'/login'})
         })
   },
   methods:{

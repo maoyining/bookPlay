@@ -33,26 +33,46 @@ export default {
     submitLogin(event){
         let that=this;
         event.preventDefault();
-        let account=JSON.stringify(this.username);
-        console.log(account);
+        let username=JSON.stringify(this.username);
+        //console.log(account);
         let password=JSON.stringify(this.password);
-        console.log(password);
-       axios({
-            method:'GET',
-            url:'/api/user/'+this.username+'/'+this.password,
+        console.log(that.username);
+        console.log(that.password);
+        axios({
+            method:'POST',
+            url:'api/login',
+            data:{
+                username:that.username,
+                password:that.password
+            }
             
         })
         .then(function(response){
             console.log(response.data);
             if(response.data=='fail to login')
               alert(response.data);
-            that.useid=response.data.info.id;
-            console.log("我是用户的id"+ that.useid);
-            that.$router.push({path:'/booklist/'+ that.useid});
+            //that.useid=response.data.info.id;
+            //console.log("我是用户的id"+ that.useid);
+            
+            //console.log(that.$store.state.userid);
+            that.$store.dispatch('getNewLoginin',true); //登录状态设置为true
+            console.log(that.$store.state.loginin);
+
+            if(that.$store.state.loginin){
+            that.$store.dispatch('getNewAdmin',response.data.info.admin); //保存用户权限
+            console.log("vuex之后的admin"+that.$store.state.admin);
+            that.$store.dispatch('getNewUserid',response.data.info.id);//保存用户的id
+            console.log("vuex之后"+that.$store.state.userid);
+             that.$store.dispatch('getNewUserName',response.data.info.username);//保存用户的id
+            console.log("vuex之后"+that.$store.state.userName);
+
+            that.$router.push({path:'/'});
+            }
         })
         .catch(function(error){
-            console.log(error);
+            //console.log(error);
             alert('error')
+           // console.log(error.status);
         })
         
     },
