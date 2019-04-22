@@ -41,13 +41,13 @@ module.exports = {
           for(i=0;i<info[0].book.length;i++){
             if(info[0].book[i].id==inputs.bookId){
                 return exits.success({info:true})
+            }else{
+              return exits.success({info:false})
             }
           }
-          return exits.fail({info:false})
-       // return exits.success({info: info[0].book});
       } else {
         return exits.forbbiden({info:'forbbiden'});
       }
     }
-  
+   
   };
