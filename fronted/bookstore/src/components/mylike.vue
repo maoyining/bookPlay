@@ -6,7 +6,6 @@
              <div class="city1" v-for="(name,index) in booklist " :key="index" @click="toBookDetail(name.id) "> <img :src="getImageUrl(name.imageUrl)" alt="" style="height:100px">
                    <div > {{ name.bookName }} </div> </div>
            </div>
-          
     </div>
     </div>
 </template>
