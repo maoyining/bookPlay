@@ -297,10 +297,9 @@ baseURL:`localhost:1337`
 **返回**
 - 删除成功statusCode:204
 - 失败返回statusCode:400
-### POST /book/img  上传图书的图片
+### POST /book/{bookId}/img  上传图书的图片
 - 只有管理员才能进行此项操作
-- bookId图书Id
-- avatar 图书图片
+- avatar 图书图片字段
 若添加成功，返回201 Created
 
 
