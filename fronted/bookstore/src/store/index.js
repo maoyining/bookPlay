@@ -3,42 +3,60 @@ import Vuex from 'vuex';
 Vue.use(Vuex);
 
 const state={
-    showFooter:true,
-    changableNum:0
+   
+    userid:100,  //用户名
+    admin:false, //权限
+    loginin:false,//登录状态
+    userName:'yyy',
+    
 };
 const getters={
-    isShow(state){
-        return state.showFooter
+    getUserid(){
+        return state.userid
     },
-    getChangeNum(){
-        return state.changableNum
-    }
+    getAdmin(){
+        return state.admin
+    },
+    getLoginin(){
+        return state.loginin
+    },
+    getUserName(){
+        return state.userName
+    },
+   
 };
 
 const mutations={
-    show(state){
-        state.showFooter=true;
+    changeUserid(state,num){
+        state.userid=num;
     },
-    hide(state){
-        state.showFooter=false;
+    changeAdmin(state,boolean){
+        state.admin=boolean;
     },
-    newNum(state,sum){
-        state.changableNum+=sum;
+    changeUserName(state,string){
+        state.userName=string;
+    },
+    changeLoginin(state,boolean){
+        state.loginin=boolean;
     }
     
 };
 
 const actions={
-    hideFooter(context){
-        context.commit('hide');
+   
+    getNewUserid(context,num){
+        context.commit('changeUserid',num)
     },
-    showFooter(context){
-        context.commit('show');
-    
+    getNewAdmin(context,boolean){
+        context.commit('changeAdmin',boolean)
     },
-    getNewNum(context,num){
-        context.commit('newNum',num)
-    }
+    getNewLoginin(context,boolean){
+        context.commit('changeLoginin',boolean)
+    },
+    getNewUserName(context,string){
+        context.commit('changeUserName',string)
+    },
+   
 };
 const store=new Vuex.Store ({
     state,

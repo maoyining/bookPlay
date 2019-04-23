@@ -13,8 +13,7 @@
                     <p><label class="label_input">图书编号</label><input v-model="ISBN" placeholder="图书编号" value="ISBN"></p>
                     <div id="login_control">
                         <button form-type='submit' @click="addBook($event)">添加</button>
-                        <button><router-link to="/register">注册</router-link></button>
-                       
+                        <button form-type='reset'>重置</button>
                     </div>
                 </form>
             </div>
@@ -63,6 +62,7 @@ export default {
         .then(function(response){
             console.log(response);
             console.log('添加图书的'+response.data);
+            that.$router.push({path:'/admin'});
            
         })
         .catch(function(error){
