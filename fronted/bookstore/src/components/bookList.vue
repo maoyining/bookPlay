@@ -1,75 +1,23 @@
 <template>
     <div class="bookList">
-      <h4>{{msg}}</h4>
-        <div >
-          <div class="footer1"  >
-             <div class="city1" v-for="(name,index) in booklist " :key="index" @click="toBookDetail(name.id) "> <img :src="getImageUrl(name.imageUrl)" alt="" style="height:100px">
-                   <div > {{ name.bookName }} </div> </div>
-           </div>
-          <myfooter></myfooter>
-    </div>
+      <booksTemp></booksTemp>
+      <myfooter></myfooter>
     </div>
 </template>
 
 <script>
-import axios from 'axios';
+
 import myfooter from './footer.vue'
+import booksTemp from './books.vue'
 export default {
      data () {
         return {
             msg: '欢迎来到书城',
-            booklist: [],
-            
-            userid:'',
-            
-            
-            
-            imageSrc:'/static/images/书.png'
             
     }
   },
-  components:{myfooter},
-  mounted:function(){
-    let that=this;
-    
-    console.log("我是用户的id" +that.$store.state.userid);
-    axios({
-            method:'GET',
-            url:'/api/books',
-           
-        })
-        .then(function(response){
-            console.log(response);
-            let _data=response.data;
-            that.booklist = _data;
-            
-            console.log(that.booklist);
-            
-        })
-        .catch(function(error){
-            console.log(error);
-        })
-  },
-  methods:{
+  components:{myfooter,booksTemp},
   
-            toBookDetail(event){
-                  let that=this;
-                  console.log(event);
-              //console.log("这里传入的用户id是"+that.userid);
-                  name:'bookDetail',
-                  that.$router.push({ path:'/books/show/'+event})
-              },
-             
-            getImageUrl(imageUrl){
-              var that=this;
-               //that.imageSrc='http://localhost:1337/@assets/images/'+imageUrl;
-               that.imageSrc='/static/images/书.png';
-               return that.imageSrc;
-               console.log('获得了');
-            }
-            
-
-  }
 
 }
 </script>
@@ -78,7 +26,7 @@ export default {
   margin:0;
   padding: 0;
 }
-.footer1{
+.books{
   
   display: flex;
   flex-flow: row wrap;
@@ -86,7 +34,7 @@ export default {
   padding: 10px;
   
 }
-.city1{
+.item{
 
   width:33%;
   height: 150px;
