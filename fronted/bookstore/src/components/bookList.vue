@@ -12,8 +12,7 @@ import booksTemp from './books.vue'
 export default {
      data () {
         return {
-            msg: '欢迎来到书城',
-            
+            msg: '欢迎来到书城',   
     }
   },
   components:{myfooter,booksTemp},
@@ -26,20 +25,7 @@ export default {
   margin:0;
   padding: 0;
 }
-.books{
-  
-  display: flex;
-  flex-flow: row wrap;
-  width:100%;
-  padding: 10px;
-  
-}
-.item{
 
-  width:33%;
-  height: 150px;
-  text-align: center;
-}
 
 
 </style>
