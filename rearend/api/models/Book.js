@@ -34,10 +34,12 @@ module.exports = {
     imageUrl:{
       type:'string'
     },
+    content:{
+      type:'string'
+    },
     user: {
       collection: 'user',
       via: 'book',
-       
     }
     
    

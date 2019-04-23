@@ -17,20 +17,19 @@ module.exports.policies = {
   *                                                                          *
   ***************************************************************************/
 
- //  '*': true,
- //只有用户登录能访问的控制器
- 'user/get-favorite-book': 'isLoggedIn',
- 'user/user-add-book':'isLoggedIn',
- 'user/user-remove-book':'isLoggedIn',
- 'book/judge-in-collection':'isLoggedIn',
- 'user/logout':'isLoggedIn',
- //只有管理员能访问的控制器
- 'book/delete-book':'isAdmin',
- 'user/upload-images':'isAdmin',
- 'book/add-book':'isAdmin',
-  
- 'user/login':true,
- 
- 
+  //  '*': true,
+  //只有用户登录能访问的控制器
+  'user/get-favorite-book': 'isLoggedIn',
+  'user/user-add-book': 'isLoggedIn',
+  'user/user-remove-book': 'isLoggedIn',
+  'book/judge-in-collection': 'isLoggedIn',
+  'user/logout': 'isLoggedIn',
+  //只有管理员能访问的控制器
+  'book/delete-book': 'isAdmin',
+  'user/upload-images': 'isAdmin',
+  'book/add-book': 'isAdmin',
+
+  'user/login': true,
+
+
 };
- 
