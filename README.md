@@ -56,6 +56,20 @@ baseURL:`localhost:1337`
     "password":"234567"
 }
 ```
+### POST /logout  用户退出登录
+- userId:用户id
+```
+{
+  "userId":12
+}
+```
+成功返回true
+```
+{
+  "info": true
+}
+```
+失败返回false
 **返回200和用户所有信息**
 ```
 {

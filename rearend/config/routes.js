@@ -31,6 +31,7 @@ module.exports.routes = {
 
   'POST /user': { action: 'user/signin' },
   'POST /login': { action: 'user/login' },//用户登录接口修改
+  'POST /logout':{action:'user/logout'},
   'POST /like': { action: 'user/user-add-book' },//用户收藏图书，只有登录用户能访问
   'POST /unlike': { action: 'user/user-remove-book' },//用户取消收藏图书，只有登录用户能访问
   'POST /book': { action: 'book/add-book' },//增加一本图书的信息，只有图书管理员能访问
