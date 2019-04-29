@@ -15,6 +15,24 @@ Vue.use(VueResource)
 /* eslint-disable no-new */
 
 
+Vue.filter('changeUrl',function(value){
+  if(value=='')
+  {
+    value='/static/images/书.jpg';
+    return value;
+  }
+  else if(value==undefined)
+  {
+    value='/static/images/书.jpg';
+    return value;
+  }
+ 
+  else{
+    value='http://localhost:1337/images/'+value;
+    return value;
+  }
+  
+})
 
 
 new Vue({
@@ -22,5 +40,11 @@ new Vue({
   router,
   store,
   components: { App },
-  template: '<App/>'
+  template: '<App/>',
+  data(){
+    return{
+      imageSrc:'',
+      imageUrl:''
+    }
+  }
 })

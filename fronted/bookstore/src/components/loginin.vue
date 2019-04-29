@@ -5,8 +5,8 @@
             <div class="login">
                 <p id="image_logo"><img src="/static/images/登录.png"></p>
                 <form action='' method="post">
-                    <p><label class="label_input">用户名</label><input v-model="username" placeholder="用户名" value="username"></p>
-                    <p><label class="label_input">用户密码</label><input v-model="password" placeholder="请输入密码" type="password" value="password"></p>
+                    <p><label class="label_input">用户名</label><input v-model="username" placeholder="用户名" ></p>
+                    <p><label class="label_input">用户密码</label><input v-model="password" placeholder="请输入密码" type="password"></p>
                     <div id="login_control">
                         <button form-type='submit' @click="submitLogin($event)">登录</button>
                         <button><router-link to="/register">注册</router-link></button>

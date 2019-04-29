@@ -1,44 +1,42 @@
 <template>
-    <div class="mylike">
-      <h4>{{msg}}</h4>
-        <div >
-          <div class="footer1"  >
-             <div class="city1" v-for="(name,index) in booklist " :key="index" @click="toBookDetail(name.id) "> <img :src="name.imageUrl|changeUrl" alt="" style="height:100px">
+    <div class="books_template">
+     
+        
+          <div class="books"  >
+             <div class="item" v-for="(name,index) in booklist " :key="index" @click="toBookDetail(name.id)" > 
+                 <img v-bind:src=" name.imageUrl| changeUrl" alt=" " style="height:100px">
                    <div > {{ name.bookName }} </div> </div>
            </div>
-    </div>
+   
     </div>
 </template>
-
 <script>
 import axios from 'axios';
-import myfooter from './footer.vue'
+
+
+
 export default {
      data () {
         return {
-            msg: '欢迎来到mylike',
+            msg: '欢迎来到书城',
             booklist: [],
             
             userid:'',
-            imageSrc:''
-            
             
             
     }
   },
- 
+  
   mounted:function(){
     let that=this;
-    that.userid=that.$store.state.userid;
-   
     axios({
             method:'GET',
-            url:'/api/user/like/'+that.userid,
+            url:'/api/books',
            
         })
         .then(function(response){
             console.log(response);
-           let _data=response.data.info;
+            let _data=response.data;
             that.booklist = _data;
             
             console.log(that.booklist);
@@ -46,8 +44,6 @@ export default {
         })
         .catch(function(error){
             console.log(error);
-            if(error='Error: Request failed with status code 403')
-            that.$router.push({ path:'/login'})
         })
   },
   methods:{
@@ -60,7 +56,7 @@ export default {
                   that.$router.push({ path:'/books/show/'+event})
               },
              
-            
+           
 
   }
 
@@ -71,7 +67,7 @@ export default {
   margin:0;
   padding: 0;
 }
-.footer1{
+.books{
   
   display: flex;
   flex-flow: row wrap;
@@ -79,14 +75,10 @@ export default {
   padding: 10px;
   
 }
-.city1{
+.item{
 
   width:33%;
   height: 150px;
   text-align: center;
 }
-
-
 </style>
-
-
