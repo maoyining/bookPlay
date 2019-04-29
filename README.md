@@ -8,7 +8,7 @@
 - 新建一个sails的项目
 `sails new rearend`
 - 实用开发工具的安装和使用nodemon(可以在代码发生更改的时候自动重启项目，提高开发效率)
-- - `cd rearend`
+- - `cd rearend`  
 - - `npm install nodemon -g`
 - - 在package.json里面修改启动方式
 - - `"start": "nodemon app.js"`
