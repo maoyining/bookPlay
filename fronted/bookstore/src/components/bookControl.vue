@@ -1,34 +1,46 @@
 <template>
     <div class="fourOptions">
-        <h4>{{msg}}</h4>
-        <button><router-link to="/addbook">添加图书</router-link></button>
-        <button>删除图书</button>
-        <button>修改图书</button><!--在点击详情页之后修改-->
-        <input v-model="key" placeholder="查询条件" value="key" v-on:@keyup.enter="submit"> 
+        <div class="top">
+            <input  class="search" v-model="key"  @keyup.enter="submit()"> <img src='/static/images/搜索.png'>
+        </div>
+            <bookTemp></bookTemp>
+        <div class="footer">
+            <button style="width:100%;height:50px;"><router-link to="/add"><h4>添加图书</h4></router-link></button>
+        </div>
+        
     </div>
 </template>
 <script>
+import bookTemp from './books.vue'
 export default {
     data(){
         return{
-            msg:'需要有一个接口获取该管理员的所有图书',
-            key:''
+           
+            key:'',
+            admin:false
         }
     },
+    components:{bookTemp},
     method:{
         submit(){
             let that=this;
             console.log('以及触发了submit');
             //console.log(key);
-            
-
-
-        }
+        
+        },
+          
     }
 }
 </script>
 <style>
-
+.footer{
+  position: fixed;
+  bottom: 0;
+ 
+  display: flex;
+  flex-flow: row wrap;
+  width:100%;
+}
 </style>
 
 

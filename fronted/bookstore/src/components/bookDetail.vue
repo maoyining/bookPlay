@@ -4,20 +4,26 @@
     <div class="container">
       <!--<img :src="getImageUrl(name.imageUrl)" alt="">-->
       <div class="book">
-      <img  src="/static/images/书.png" alt="" style="height:150px"></div>
+      <img v-bind:src=" book.imageUrl| changeUrl" alt="" style="height:150px"></div>
       <div class="book">
-          <div class="item"> <h3 >{{book.bookName}} </h3></div>
-          <div class="item"> <p >{{book.author}} </p></div>
-          <div class="item"> <p >{{num}}人收藏 </p></div>
+          <div class="items"> <h3 >{{book.bookName}} </h3></div>
+          <div class="items"> <p >{{book.author}} </p></div>
+          <div class="items"> <p >{{num}}人收藏 </p></div>
 
        </div>
 
    </div>
-     <div class="footerdetail">
+     <div class="footerdetail" v-if="!admin">
              <div class="city" ><router-link to='/'><img src="/static/images/书城.png"><div > 书城</div> </router-link></div>
              <div class="city"  v-if="!collect" @click="like()"><img src="/static/images/收藏.png" ><div> 加入书桌</div> </div>
              <div class="city"  v-if="collect" @click="unlike()"><img src="/static/images/收藏-1.png" ><div> 移除书桌</div> </div>
-             <div class="city" ><router-link to='/mylike'><img src="/static/images/我的.png"> <div>我的</div> </router-link></div>
+             <div class="city" ><router-link to='/my'><img src="/static/images/我的.png"> <div>我的</div> </router-link></div>
+           </div>
+    <div class="footerdetail" v-if="admin">
+             <div class="city1" @click="tochange()"><img src="/static/images/修改.png"><div > 修改图书</div> </div>
+             <div class="city1" @click="tochangeImg()"><img src="/static/images/修改.png"><div > 修改图书图片</div> </div>
+             <div class="city1"  @click="deleteBook()"><img src="/static/images/删除.png" ><div> 删除图书</div> </div>
+             <div class="city1" ><router-link to='/my'><img src="/static/images/我的.png"> <div>我的</div> </router-link></div>
            </div>
     </div>
      
@@ -34,17 +40,19 @@ export default {
             userid:'' ,
             bookName:'',
             ISBN:'' ,
-            admin:'',
+            admin:false,
             collect:false,
             loginstatus:'',
-            num:''
+            num:'',
+            imageUrl:'',
+            imageSrc:''
     }
   },
   mounted:function(){
     let that=this;
 
     that.bookid= that.$route.params.id;
-
+    that.admin=that.$store.state.admin;
     console.log("我是book的id"+that.bookid);
     that.admin=that.$store.state.admin;
     that.userid=that.$store.state.userid;
@@ -58,12 +66,12 @@ export default {
         .then(function(response){
             console.log(response.data.info);
             
-            //console.log("我是response" + response);
-           let _data=response.data.info;
-            that.book = _data;
             
-          // console.log("我是保存下来的信息"+that.book);
+           that.book=response.data.info;
+           
             
+         
+             
         })
         .catch(function(error){
             console.log(error);
@@ -81,20 +89,19 @@ export default {
             if(response.data.info==false)
              {
                  that.collect=false;
-                 //alert('错了');
+                 
              }
              else if(response.data.info==true)
              {
                  that.collect=true;
-                 //alert('ture');
+                 
              }
             //console.log(response.status);
 
         })
         .catch(function(error){
            
-            //alert(error);
-            //console.log(error.code);
+           
             if(error='Error: Request failed with status code 403'){
                 
                 that.loginstatus=1;
@@ -116,12 +123,14 @@ export default {
             console.log(error);
 
         })
-
-    
-
+             
+             
+               
+            
    
   },
   methods:{
+      
       like(){
           let that=this;
           if(that.loginstatus==1)
@@ -190,6 +199,7 @@ export default {
         .then(function(response){
             console.log(response.data);
             alert("删除图书成功");
+            that.$router.push({path:'/my'});
            
             
         })
@@ -199,13 +209,17 @@ export default {
         })     
         
     },
-     getImageUrl(imageUrl){
-              var that=this;
-               //that.imageSrc='http://localhost:1337/assets/images/'+imageUrl;
-               that.imageSrc='/static/images/书.png';
-               return that.imageSrc;
-               console.log('获得了');
-            }
+    tochangeImg(){
+         var that=this;
+         console.log(that.bookid);
+         that.$router.push({ path:'/edit/image/'+that.bookid})
+    },
+
+    tochange(){
+        var that=this;
+        console.log(that.bookid);
+        that.$router.push({ path:'/edit/'+that.bookid})
+    }
 
 
   }
@@ -221,7 +235,7 @@ export default {
 .book{
     flex:0 0 50%;
 }
-.item{
+.items{
    height: 40px;
     text-align: left;
     margin-top: 10px;
@@ -236,7 +250,10 @@ export default {
 }
 .city{
  flex:0 0 33%;
- 
+
+}
+.city1{
+    flex:0 0 25%;
 }
 
 </style>

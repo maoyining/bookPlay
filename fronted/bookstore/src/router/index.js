@@ -11,6 +11,8 @@ import footer from '@/components/footer.vue'
 import mylike from '@/components/mylike.vue'
 import my from '@/components/my.vue'
 import adminuser from '@/components/bookControl.vue'
+import editbook from '@/components/editbook.vue'
+import editImg from '@/components/editImg.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -42,7 +44,7 @@ export default new Router({
       component:bookDetail
     },
     {
-      path:'/addbook',
+      path:'/add',
       name:'addBook',
       component:addBook
 
@@ -61,6 +63,16 @@ export default new Router({
       path:'/admin',
       name:'admin',
       component:adminuser
+    },
+    {
+      path:'/edit/:id',
+      name:'edit',
+      component:editbook
+    },
+    {
+      path:'/edit/image/:id',
+      name:'editImg',
+      component:editImg
     }
     
     
