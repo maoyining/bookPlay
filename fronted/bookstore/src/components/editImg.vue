@@ -11,6 +11,7 @@ export default {
     data(){
         return{
             bookid:'',
+            imgFile:''
         }
     },
     mounted:function(){
@@ -19,31 +20,25 @@ export default {
     },
     methods:{
         selectImg(e){
+            e.preventDefault();
             let that=this;
             //console.log(e);
             let imgFile = e.target.files[0];//取到上传的图片
-            console.log(imgFile);
+            //console.log(imgFile);
             let formData=new FormData();//通过formdata上传
-            formData.append('file',imgFile);
-           // console.log("看看这里传过去的"+formData.get('file'));
-           let config={
-               headers:{"Content-Type": "multipart/form-data"},
-                onUploadProgress:e=>{
-                    var completeProgress=((e.loaded/e.total*100)|0)+"%";
-                    this.progress=completeProgress;
-                }
-           }
-           const instance=axios.create({
-               withCredentials:true
-           })
-            instance({
+            formData.append('avatar',imgFile);
+            console.log("看看这里传过去的"+formData.get('file'));
+           
+           
+            axios({
                 method: 'POST',
                 url:'/api/book/'+that.bookid+'/img', 
-                data:{
-                    avatar:formData,
-                },
-                
-                
+                data:formData,
+               
+                headers:{
+                    'Content-Type':'multipart/form-data'
+                }
+            
             })
            .then(function (res) {
             console.log(res.data);
