@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-   <button @click="sendMessage">发消息</button>
+   <button @click="send">发消息</button>
     <router-view/>
    
   </div>
@@ -13,11 +13,12 @@ export default {
   name: 'App',
   data(){
     return {
-      path:"ws://127.0.0.1:44799/77ca57b5-98f6-49cc-b6d6-ccd5495e7db4",
-      socked:"",
+      path:"ws://118.25.136.149:2333",
+      socket:"",
       param:'aaa'
     }
   },
+  
   mounted(){
     this.initWebSocket();
   },
@@ -32,7 +33,7 @@ export default {
                 alert("您的浏览器不支持socket")
             }else{
                 // 实例化socket
-                this.socket = new WebSocket(this.path)
+                this.socket = new WebSocket('ws://118.25.136.149:2333')
                 // 监听socket连接
                 this.socket.onopen = this.open
                 // 监听socket错误信息
@@ -55,16 +56,14 @@ export default {
     send(){
       let that=this;
       this.socket.send(that.param);
+      console.log('发送成功');
     },
     close(){
       console.log('断开连接');
     },
-    sendMessage(){
-      var that=this;
-      console.log("yyy");
-      that.send();
-    }
+    
   },
+  
   
 }
 

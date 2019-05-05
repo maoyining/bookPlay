@@ -8,10 +8,13 @@ import store from './store'
 import axios from 'axios'
 import VueResource from 'vue-resource'
 import VueRouter from 'vue-router';
-
-import VueSocketio from 'vue-socket.io';
 import socketio from 'socket.io-client';
-//Vue.use(VueSocketio,socketio('ws://127.0.0.1:44799/77ca57b5-98f6-49cc-b6d6-ccd5495e7db4'))
+import VueSocketio from 'vue-socket.io';
+/*
+Vue.use(
+  VueSocketio,socketio('ws://118.25.136.149:2333/'));
+   
+ */
 Vue.prototype.$http=axios
 Vue.config.productionTip = false
 
