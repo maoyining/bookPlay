@@ -23,7 +23,7 @@ export default {
     name:"Login",
     data () {
     return {
-      msg: 'Welcome to loginin',
+     
       username:'',
       password:'',
 
@@ -87,8 +87,6 @@ export default {
     justify-content: center;
     align-items: center;
     height: 100vh;
-
- 
 }
 .login{
     height:143px;
@@ -112,7 +110,7 @@ form p > *{
     background-color: #3CD8FF;
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
-    border-radius: 5px;
+    
  
 }
 #login_control {
