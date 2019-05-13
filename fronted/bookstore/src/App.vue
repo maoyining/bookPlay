@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-   <button @click="send">发消息</button>
+   
     <router-view/>
    
   </div>
@@ -26,6 +26,7 @@ export default {
   destroyed(){
      this.socket.onclose=this.close//断开websocket连接
   },
+  
   methods:{
    
     initWebSocket(){
@@ -77,6 +78,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 20px;
 }
 </style>

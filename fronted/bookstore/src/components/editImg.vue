@@ -42,6 +42,9 @@ export default {
             })
            .then(function (res) {
             console.log(res.data);
+            if(res.data=="Created"){
+                that.$router.push({path:'/'});
+            }
             }).catch(function(error){
             console.log(error);
             })

@@ -1,17 +1,18 @@
 <template>
     <div class="bookEdit">
       <div class="Edit">
-                <p id="image_logo"><img src="/static/images/书.png"></p>
+                <p id="image_logo"><img v-bind:src=" book.imageUrl| changeUrl" alt=" " style="height:100px"></p>
                 <form action='' method="post">
-                    <p><label class="label_input">图书名称</label><input v-model="book.bookName" ></p>
+                    <p><label class="label_input">图书名称</label><input v-model="book.bookName" style="margin-top:5px;" ></p>
                     
                     <p><label class="label_input">图书价格</label><input v-model="book.bookPrice" ></p>
                     <p><label class="label_input">图书出版社</label><input v-model="book.bookPub"></p>
                     <p><label class="label_input">图书作者</label><input v-model="book.author" ></p>
                     <p><label class="label_input">图书编号</label><input v-model="book.ISBN" ></p>
                     <div id="submit_control">
-                        <button form-type='submit' @click="changeBook($event)">确定修改</button>
-                        <button form-type='reset'>重置</button>
+                        <button form-type='submit' @click="changeBook($event)" style="margin-top:10px;"> 确定修改</button>
+                        <button @click="tochangeImg()"> 修改图片</button>
+                        <button style="margin-top:10px"><router-link to="/" style="text-decoration:none;color:black">取消</router-link></button>
                     </div>
                 </form>
             </div>  
@@ -82,6 +83,11 @@ export default {
         })
         
     },
+    tochangeImg(){
+         var that=this;
+         console.log(that.bookid);
+         that.$router.push({ path:'/edit/image/'+that.bookid})
+    },
     
     }
    
@@ -118,6 +124,7 @@ form p > *{
     background-color: #3CD8FF;
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
+    margin-top: 10px;
  
 }
 #submit_control {
