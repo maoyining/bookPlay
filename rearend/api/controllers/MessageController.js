@@ -18,10 +18,10 @@ module.exports = {
         // console.log(msg)
         sails.sockets.join(req, 'funSockets');
         
-        let info=await Book.find({id:2}).populate('user')
-        let num =info[0].user.length
+      //  let info=await Book.find({id:2}).populate('user')
+      //  let num =info[0].user.length
         
-        sails.sockets.broadcast('funSockets', { greeting: num });
+        sails.sockets.broadcast('funSockets', { greeting: "欢迎加入funSockets房间" });
       },
 }; 
 

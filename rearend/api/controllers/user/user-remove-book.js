@@ -31,7 +31,7 @@ module.exports = {
         sails.sockets.join(this.req, 'funSockets');
         let info=await Book.find({id:inputs.bookId}).populate('user')
         let num =info[0].user.length
-        sails.sockets.broadcast('funSockets', { greeting: num });
+        sails.sockets.broadcast('funSockets', { greeting: num ,id:inputs.bookId});
         return exits.success({ info: true })
       } catch (err) {
         return exits.fail({ info: false })

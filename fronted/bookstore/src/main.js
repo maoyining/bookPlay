@@ -10,6 +10,8 @@ import VueResource from 'vue-resource'
 import VueRouter from 'vue-router';
 import socketio from 'socket.io-client';
 import VueSocketio from 'vue-socket.io';
+
+//import '../static/js/sails.io.js';
 /*
 Vue.use(
   VueSocketio,socketio('ws://118.25.136.149:2333/'));
@@ -20,6 +22,42 @@ Vue.config.productionTip = false
 
 Vue.use(VueResource)
 /* eslint-disable no-new */
+
+
+
+
+Vue.component('remote-script', {
+
+  render: function (createElement) {
+      var self = this;
+      return createElement('script', {
+          attrs: {
+              type: 'text/javascript',
+              src: this.src
+          },
+          on: {
+              load: function (event) {
+                  self.$emit('load', event);
+              },
+              error: function (event) {
+                  self.$emit('error', event);
+              },
+              readystatechange: function (event) {
+                  if (this.readyState == 'complete') {
+                      self.$emit('load', event);
+                  }
+              }
+          }
+      });
+  },
+
+  props: {
+      src: {
+          type: String,
+          required: true
+      }
+  }
+});
 
 
 Vue.filter('changeUrl',function(value){
