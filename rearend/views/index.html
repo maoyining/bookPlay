@@ -1,0 +1,14 @@
+
+<script src="这里需要把sails.io.js引入，我之前写的是绝对路径才能用，所以这里我就不放我的路径了"></script>
+<script type="text/javascript">
+
+  io.sails.url = 'http://localhost:1337';
+  //监听
+  //io.socket.get('/message/hello')
+  //监听事件，若有人收藏或者有人取消收藏，则会触发该事件
+  io.socket.on('message', function (data) {
+    console.log(data.greeting);
+  });
+ 
+
+</script>
