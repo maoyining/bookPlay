@@ -1,5 +1,10 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+
+import VueSocketio from 'vue-socket.io';
+import socketio from 'socket.io-client';
+
+//Vue.use(VueSocketio, socketio('ws://118.25.136.149:2333/'), store);
 Vue.use(Vuex);
 
 const state={

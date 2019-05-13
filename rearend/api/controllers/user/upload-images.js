@@ -24,11 +24,11 @@ module.exports = {
   fn: function (inputs, exits) {
     if (this.req.session.admin == true) {
       this.req.file('avatar').upload({
-        dirname: require('path').resolve(sails.config.appPath, 'assets/images')
+        dirname: require('path').resolve(sails.config.appPath, 'public/images')
       }, async function (err, uploadedFiles) {
         
         let str = uploadedFiles[0].fd
-        let dir = sails.config.appPath + '\\assets\\images\\'
+        let dir = sails.config.appPath + '\\public\\images\\'
         let result = str.replace(dir, '')
 
         await Book.update({ id: inputs.bookId }).set({ imageUrl: result })

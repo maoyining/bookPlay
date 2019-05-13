@@ -8,7 +8,7 @@
 - 新建一个sails的项目
 `sails new rearend`
 - 实用开发工具的安装和使用nodemon(可以在代码发生更改的时候自动重启项目，提高开发效率)
-- - `cd rearend`
+- - `cd rearend`  
 - - `npm install nodemon -g`
 - - 在package.json里面修改启动方式
 - - `"start": "nodemon app.js"`
@@ -22,6 +22,9 @@ baseURL:`localhost:1337`
   给这个js文件命名的时候就千万要注意了，不能写成getBookList.js的形式，会访问不到
 - 在自己定义的控制器里如果要用req,res就要在前面加上this.req,this.res
 - postman测试时的相关问题
+- sails查看图片地址时读取的是tmp下的public文件夹里面的图片地址。但是使用原先的办法，图片是保存到assets下面的图片目录下。必须每次重启数据库才可获得修改的图片。解决方法：在根目录下新建一个public文件夹，修改.sailsrc，添加 "paths":{
+    "public":"public"
+  }即可
 
 ### POST /user 用户注册，
 **传参**

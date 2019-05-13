@@ -1,6 +1,6 @@
 <template>
     <div class="bookDetail">
-      <h4>{{msg}}</h4>
+      
     <div class="container">
       <!--<img :src="getImageUrl(name.imageUrl)" alt="">-->
       <div class="book">
