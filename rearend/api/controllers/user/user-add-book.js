@@ -36,11 +36,18 @@ module.exports = {
     })
 
     if (userInfo[0] && bookInfo[0]) {
-
+       
       try {
         //用户收藏图书添加联系
         await User.addToCollection(inputs.userId, 'book', inputs.bookId);
+
+        sails.sockets.join(this.req, 'funSockets');
+        let info=await Book.find({id:inputs.bookId}).populate('user')
+        let num =info[0].user.length
+        sails.sockets.broadcast('funSockets', { greeting: num });
+
         return exits.success({ info: true })
+
       } catch (err) {
         return exits.fail({ info: false })
       }
