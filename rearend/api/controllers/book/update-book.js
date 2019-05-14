@@ -25,6 +25,10 @@ module.exports = {
       ISBN: {
         type: 'string',
         //allowNull: true,
+      },
+      content:{
+        type:'string',
+
       }
     },
   
@@ -51,6 +55,7 @@ module.exports = {
           bookPub: inputs.bookPub,
           author: inputs.author,
           ISBN: inputs.ISBN,
+          content:inputs.content
   
         })
         if(updateBook){

@@ -22,6 +22,10 @@ module.exports = {
     ISBN: {
       type: 'string',
       required: true,
+    },
+    content:{
+      type:'string',
+      required:true
     }
   },
 
@@ -48,6 +52,7 @@ module.exports = {
         bookPub: inputs.bookPub,
         author: inputs.author,
         ISBN: inputs.ISBN,
+        content:inputs.content
 
       }).intercept((err) => {
         return exits.fail({info: err})

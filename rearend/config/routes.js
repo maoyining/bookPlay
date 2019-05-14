@@ -39,6 +39,7 @@ module.exports.routes = {
   
   'PUT /book/:bookId?':{action:'book/update-book'},
   'DELETE /book': { action: 'book/delete-book' },//删除图书，只有图书管理员可以访问
+  'POST /password':{action:'user/update-password'}
   //'GET /myn':'UserController.test',  s
   /***************************************************************************
   *                                                                           *
