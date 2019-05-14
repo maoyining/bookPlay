@@ -8,7 +8,11 @@
       <div class="book">
           <div class="items"> <h3 >{{book.bookName}} </h3></div>
           <div class="items"> <p >{{book.author}} </p></div>
-          <div class="items"> <p >{{num}}人收藏 </p></div>
+         
+          <div class="items" v-if="this.$store.state.bookid!=this.bookid " >
+             
+               <p >{{num}}人收藏 </p></div>
+          <div class="items" v-if="this.$store.state.bookid==this.bookid"> <p >{{this.$store.state.num}}人收藏 </p></div>
           <div class="items"><p>{{book.bookPub}}</p></div>
        </div>
     <div >
@@ -49,11 +53,22 @@ export default {
             admin:false,
             collect:false,
             loginstatus:'',
-            num:'',
+            num:this.$store.state.num,
             imageUrl:'',
             imageSrc:'',
+           
             jianjie:"  本书收录了加缪的《局外人》与《鼠疫》两部作品。《局外人》讲述了一个叫默尔索的小职员因过失杀人被指控，*终却因为他在母亲的葬礼上没有流泪而被判处死刑的故事。在这部小说中，加缪以一个与社会格格不入的“局外人”的视角，用客观、冷静的语调，通过默尔索经历的一场假借法律之名的道德审判，深刻地揭示了这世界的荒谬性。"
     }
+  },
+  watch:{
+     
+     'this.$store.state.num':function(val){
+         if(this.$store.state.bookid==this.bookid){
+             this.num=val
+             console.log('yyy')
+         }
+
+     }
   },
   mounted:function(){
     let that=this;
@@ -63,7 +78,8 @@ export default {
     console.log("我是book的id"+that.bookid);
     that.admin=that.$store.state.admin;
     that.userid=that.$store.state.userid;
-   
+    that.num=that.$store.state.num;
+    
     axios({
             method:'GET',
             url:'/api/book/'+ that.bookid,
@@ -121,7 +137,6 @@ export default {
         })
         
         .then(function(response){
-            console.log(response.data.num);
             that.num=response.data.num;
            
             
@@ -170,7 +185,7 @@ export default {
           let that=this;
           if(that.loginstatus==1)
            that.$router.push({path:'/login'});
-          console.log("取消收藏前的验证bookid"+that.bookid+"用户id"+ that.userid) 
+          
           axios({
             method:'POST',
             url:'/api/unlike',
@@ -180,14 +195,14 @@ export default {
             }
         })
         .then(function(response){
-            console.log(response.data);
+           
             alert("取消收藏成功");
             that.collect=false;
             
         })
         .catch(function(error){
-            console.log(error);
-           // alert('error')
+           
+           alert('error')
         })     
         
     },
@@ -204,14 +219,14 @@ export default {
             }
         })
         .then(function(response){
-            console.log(response.data);
+           
             alert("删除图书成功");
             that.$router.push({path:'/my'});
            
             
         })
         .catch(function(error){
-            console.log(error);
+           
             alert('error')
         })     
         
@@ -220,7 +235,7 @@ export default {
 
     tochange(){
         var that=this;
-        console.log(that.bookid);
+       
         that.$router.push({ path:'/edit/'+that.bookid})
     }
 

@@ -13,6 +13,8 @@ const state={
     admin:false, //权限
     loginin:false,//登录状态
     userName:'yyy',
+    bookid:'',
+    num:''
     
 };
 const getters={
@@ -27,6 +29,12 @@ const getters={
     },
     getUserName(){
         return state.userName
+    },
+    getBookid(){
+        return state.bookid
+    },
+    getNum(){
+        return state.num
     },
    
 };
@@ -43,7 +51,14 @@ const mutations={
     },
     changeLoginin(state,boolean){
         state.loginin=boolean;
-    }
+    },
+    changeBookid(state,num){
+        state.bookid=num;
+    },
+    changeNum(state,num){
+        state.num=num;
+    },
+
     
 };
 
@@ -60,6 +75,12 @@ const actions={
     },
     getNewUserName(context,string){
         context.commit('changeUserName',string)
+    },
+    getNewBookid(context,num){
+        context.commit('changeBookid',num)
+    },
+    getNewNum(context,num){
+        context.commit('changeNum',num)
     },
    
 };

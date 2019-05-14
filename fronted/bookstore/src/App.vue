@@ -25,7 +25,7 @@ export default {
   mounted(){ 
    // this.initWebSocket();
    
-
+var that=this;
 
   var io = require('sails.io.js')( require('socket.io-client') );
 
@@ -39,10 +39,12 @@ export default {
    console.log(data.id);
    console.log("当今收藏人数：")
     console.log(data.greeting);
-    
+    that.$store.dispatch('getNewBookid',data.id); //保存图书id
+    that.$store.dispatch('getNewNum',data.greeting); //保存图书收藏人数
+    console.log('socketbookid'+that.$store.state.bookid);
   });
  
-
+   
   },
   
   destroyed(){
