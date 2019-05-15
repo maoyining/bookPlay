@@ -14,7 +14,7 @@
                     <p><label class="label_input">图书编号</label><input v-model="ISBN" placeholder="图书编号" value="ISBN"></p>
                     <div id="login_control">
                         <button form-type='submit' @click="addBook($event)">添加</button>
-                        <button ><router-link to='/my'>取消</router-link></button>
+                        <button ><router-link to='/my' style="text-decoration:none;color:black">取消</router-link></button>
                     </div>
                 </form>
             </div>

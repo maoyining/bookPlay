@@ -16,13 +16,13 @@
                 <p>{{jianjie}}</p>
             </div>
         </div>
-        <div class="footerdetail" v-if="!admin">
+        <div  v-if="!admin">
              <div class="city" ><router-link to='/' style="text-decoration:none;color:black"><img src="/static/images/领读.png"><div > 书城</div> </router-link></div>
              <div class="city"  v-if="!collect" @click="like()"><img src="/static/images/收藏.png" ><div> 加入书桌</div> </div>
              <div class="city"  v-if="collect" @click="unlike()"><img src="/static/images/收藏-1.png" ><div> 移除书桌</div> </div>
              <div class="city" ><router-link to='/my' style="text-decoration:none;color:black"><img src="/static/images/我的鸭.png"> <div>我的</div> </router-link></div>
         </div>
-        <div class="footerdetail" v-if="admin">
+        <div  v-if="admin">
              <div class="city" @click="tochange()"><img src="/static/images/修改鸭.png"><div > 修改图书</div> </div>
              <div class="city"  @click="deleteBook()"><img src="/static/images/删除鸭.png" ><div> 删除图书</div> </div>
              <div class="city" ><router-link to='/my' style="text-decoration:none;color:black"><img src="/static/images/我的鸭.png"> <div>我的</div> </router-link></div>
@@ -33,6 +33,7 @@
 
 <script>
 import axios from 'axios';
+
 export default {
      data () {
         return {

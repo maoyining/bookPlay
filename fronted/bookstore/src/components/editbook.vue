@@ -45,7 +45,7 @@ export default {
         .then(function(response){
             //console.log(response);
             that.book=response.data.info;
-           console.log(that.book.author);
+          
         })
         .catch(function(error){
             console.log(error);
@@ -57,8 +57,7 @@ export default {
        
         event.preventDefault();
         console.log(this.book.bookName);
-        //let password=JSON.stringify(this.password);
-        //console.log(password);
+       
         axios({
             method:'PUT',
             url:'/api/book/'+that.bookid,
