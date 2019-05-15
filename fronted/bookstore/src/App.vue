@@ -7,7 +7,7 @@
 </template>
 
 <script >
-
+import myfooter from '@/components/footer.vue'
 
 
 export default {
@@ -20,7 +20,7 @@ export default {
     }
   },
   
-
+components:{myfooter},
   
   mounted(){ 
    // this.initWebSocket();

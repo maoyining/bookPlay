@@ -3,9 +3,10 @@
         <div class="loginin" >
             
             <div class="login">
-                <p id="image_logo"><img src="/static/images/书.png"></p>
+                <p id="image_logo"><img src="/static/images/addBook.png" ></p>
+                
                 <form action='' method="post">
-                    <p><label class="label_input">图书名称</label><input v-model="bookName" placeholder="图书名称" value="bookName"></p>
+                    <p><label class="label_input">图书名称</label><input  class="" v-model="bookName" placeholder="图书名称" value="bookName"></p>
                     
                     <p><label class="label_input">图书价格</label><input v-model="bookPrice" placeholder="图书价格" value="bookPrice"></p>
                     <p><label class="label_input">图书出版社</label><input v-model="bookPub" placeholder="图书出版社" value="bookPub"></p>
@@ -13,7 +14,7 @@
                     <p><label class="label_input">图书编号</label><input v-model="ISBN" placeholder="图书编号" value="ISBN"></p>
                     <div id="login_control">
                         <button form-type='submit' @click="addBook($event)">添加</button>
-                        <button form-type='reset'>重置</button>
+                        <button ><router-link to='/my'>取消</router-link></button>
                     </div>
                 </form>
             </div>
@@ -38,6 +39,9 @@ export default {
 
     } 
     } ,
+    mounted:{
+
+    },
     methods:{
     addBook(event){
         let that=this;
@@ -66,8 +70,10 @@ export default {
            
         })
         .catch(function(error){
-            console.log(error);
-            alert('error')
+           
+            if(error=='Error: Request failed with status code 403')
+                that.$router.push({path:'/login'});
+            
         })
         
     },
@@ -102,7 +108,7 @@ form p > *{
     height: 28px;
     line-height: 28px;
     text-align: center;
- 
+  
     color: white;
     background-color: #3CD8FF;
     border-top-left-radius: 5px;

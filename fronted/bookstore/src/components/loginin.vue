@@ -5,12 +5,12 @@
             <div class="login">
                 <p id="image_logo"><img src="/static/images/登录.png"></p>
                 <form action='' method="post">
-                    <p><label class="label_input"  >用户名</label><input v-model="username" placeholder="用户名" ></p>
-                    <p style="margin-top:10px"><label class="label_input" >用户密码</label><input v-model="password" placeholder="请输入密码" type="password"></p>
+                    <p><label class="label_input"  style="margin-top:-3px;">用户名</label><input v-model="username" placeholder="用户名" ></p>
+                    <p style="margin-top:10px"><label class="label_input" style="margin-top:-3px">用户密码</label><input v-model="password" placeholder="请输入密码" type="password"></p>
                     <div id="login_control">
                         <button form-type='submit' @click="submitLogin($event)">登录</button>
-                        <button><router-link to="/register">注册</router-link></button>
-                        <button>忘记密码</button>
+                        <button><router-link to="/register" style="text-decoration:none;color:black">注册</router-link></button>
+                        <button><router-link to="/" style="text-decoration:none;color:black">取消</router-link></button>
                     </div>
                 </form>
             </div>
@@ -102,7 +102,7 @@ form p > *{
     font-family: 宋体;
  
     width: 65px;
-    height: 28px;
+    height: 38px;
     line-height: 28px;
     text-align: center;
  
