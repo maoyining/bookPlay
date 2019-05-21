@@ -14,7 +14,12 @@ const state={
     loginin:false,//登录状态
     userName:'yyy',
     bookid:'',
-    num:''
+    num:'',
+    httpError:{
+        hasError:false,
+        status:'',
+        statusText:''
+    }
     
 };
 const getters={
@@ -58,7 +63,9 @@ const mutations={
     changeNum(state,num){
         state.num=num;
     },
-
+    ON_HTTP_ERROR(state,payload){
+        state.httpError=payload
+    }
     
 };
 

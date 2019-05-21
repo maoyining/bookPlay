@@ -1,14 +1,15 @@
 <template>
   <div id="app">
-   
-    <router-view/>
+    
   
+    <router-view/>
+   
   </div>
 </template>
 
 <script >
 import myfooter from '@/components/footer.vue'
-
+import { getTest } from '@/api/testAPI';
 
 export default {
   name: 'App',
@@ -16,7 +17,8 @@ export default {
     return {
       
       socket:"",
-      param:'aaa'
+      param:'aaa',
+      Data:'yyy'
     }
   },
   
@@ -47,9 +49,19 @@ var that=this;
   destroyed(){
      //this.socket.onclose=this.close//断开websocket连接
   },
-  
+  computed:{
+    httpError(){
+      return this.$store.state.httpError;
+    }
+  },
   methods:{
-   
+   httpGet() {
+     this.getTest('mock').then(response => {
+       this.Data=response.data;
+     });
+     
+    console.log('测试方法');
+   }
   
     
    },
