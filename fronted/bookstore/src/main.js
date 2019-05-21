@@ -10,6 +10,11 @@ import VueResource from 'vue-resource'
 import VueRouter from 'vue-router';
 import socketio from 'socket.io-client';
 import VueSocketio from 'vue-socket.io';
+import { Tabbar,TabItem,Field } from 'mint-ui'
+
+Vue.component(Tabbar.name, Tabbar);
+Vue.component(TabItem.name, TabItem);
+Vue.component(Field.name, Field);
 
 
 //import '../static/js/sails.io.js';
@@ -20,7 +25,7 @@ Vue.use(
  */
 Vue.prototype.$http=axios
 Vue.config.productionTip = false
-Vue.prototype.getTest=getTest
+
 
 Vue.use(VueResource)
 /* eslint-disable no-new */

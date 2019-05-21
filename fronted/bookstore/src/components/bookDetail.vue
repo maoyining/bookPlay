@@ -184,6 +184,7 @@ export default {
     display:flex;
     flex-flow: row wrap;
     width:100%;
+    
 }
 .book{
     flex:0 0 50%;
@@ -207,7 +208,7 @@ export default {
   height:60px;
 }
 .city{
-display: flex;
+
  flex:0 0 33%;
 
 }

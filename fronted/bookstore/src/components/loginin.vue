@@ -1,16 +1,17 @@
 <template>
 
         <div class="loginin" >
-            
-            <div class="login">
-                <p id="image_logo"><img src="/static/images/登录.png"></p>
+           
+          <div class="login">
+                <p style="text-align:center;color:black"><strong>用户登录</strong></p>
                 <form action='' method="post">
-                    <p><label class="label_input"  style="margin-top:-3px;">用户名</label><input v-model="username" placeholder="用户名" ></p>
-                    <p style="margin-top:10px"><label class="label_input" style="margin-top:-3px">用户密码</label><input v-model="password" placeholder="请输入密码" type="password"></p>
-                    <div id="login_control">
-                        <button form-type='submit' @click="submitLogin($event)">登录</button>
-                        <button><router-link to="/register" style="text-decoration:none;color:black">注册</router-link></button>
-                        <button><router-link to="/" style="text-decoration:none;color:black">取消</router-link></button>
+                    <input v-model="username" placeholder="用户名" class="login_item">
+                    <input v-model="password" placeholder="请输入密码" type="password" class="login_item">
+                     <div class="login_control">
+                        <p class= "control_item" form-type='submit' @click="submitLogin($event)" style="color:black"><strong>登录</strong></p>
+                   
+                        <p class= "control_item"><router-link to="/register" style="text-decoration:none;color:black"><strong>我要注册</strong></router-link></p>
+                        <p class= "control_item"><router-link to="/" style="text-decoration:none;color:black"><strong>取消登录</strong></router-link></p>
                     </div>
                 </form>
             </div>
@@ -84,39 +85,30 @@ export default {
 <style>
 .loginin{
     display: flex;
-    justify-content: center;
     align-items: center;
     height: 100vh;
+    background-image: url(/static/images/timg.jpg)
 }
 .login{
-    height:143px;
-    background:no-repeat;
-   
+    height:200px;
+    width:100%;
 }
-form p > *{
-    display: inline-block;
-    vertical-align: middle;
-}
-.label_input{
-   font-size: 14px;
-    font-family: 宋体;
- 
-    width: 65px;
-    height: 38px;
-    line-height: 28px;
+.login_item{
+    height:30px;
+    width:80%;
+    border:1px solid white;
+    border-radius: 5PX;
     text-align: center;
- 
-    color: white;
-    background-color: #3CD8FF;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-    
- 
+    margin-top:20px;
 }
-#login_control {
-    padding-top: 10px;
+.login_control{
+    display: flex;
+    flex-flow: row;
+    text-align: center;
+    margin-top:20px;
 }
-
+.control_item{
+    flex: 33%;
+}
 </style>
-
 

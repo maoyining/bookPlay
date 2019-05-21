@@ -1,22 +1,29 @@
 <template>
-    <div class="bookEdit">
-      <div class="Edit">
-                <p id="image_logo"><img v-bind:src=" book.imageUrl| changeUrl" alt=" " style="height:100px"></p>
+<div>
+   
+     <div class="editBooks" >
+            <div class="Edit">
+                <p ><img v-bind:src=" book.imageUrl| changeUrl" alt=" " style="height:100px"></p>
                 <form action='' method="post">
-                    <p><label class="label_input">图书名称</label><input v-model="book.bookName" style="margin-top:5px;" ></p>
-                    
-                    <p><label class="label_input">图书价格</label><input v-model="book.bookPrice" ></p>
-                    <p><label class="label_input">图书出版社</label><input v-model="book.bookPub"></p>
-                    <p><label class="label_input">图书作者</label><input v-model="book.author" ></p>
-                    <p><label class="label_input">图书编号</label><input v-model="book.ISBN" ></p>
-                    <div id="submit_control">
-                        <button form-type='submit' @click="changeBook($event)" style="margin-top:10px;"> 确定修改</button>
-                        <button @click="tochangeImg()"> 修改图片</button>
-                        <button style="margin-top:10px"><router-link to="/" style="text-decoration:none;color:black">取消</router-link></button>
+                    <div class="edit_item"><label class="label_input">图书名称</label><input   v-model="book.bookName" ></div>
+                    <div class="edit_item"><label class="label_input">图书价格</label><input  v-model="book.bookPrice" ></div>
+                    <div class="edit_item"><label class="label_input">图书出版社</label><input  v-model="book.bookPub" ></div>
+                    <div class="edit_item"><label class="label_input">图书作者</label><input  v-model="book.author" ></div>
+                    <div class="edit_item"><label class="label_input">图书编号</label><input  v-model="book.ISBN" ></div>
+                    <div class="edit_control">
+                        <p form-type='submit' @click="changeBook($event)" style="color:black"><strong>确定修改</strong></p>
+                        <p @click="tochangeImg()">修改图书图片</p>
+                        <p ><router-link to='/my' style="text-decoration:none;color:black"><strong>取消</strong></router-link></p>
+                    </div>
+                    <div v-if="imgChangeStatus">
+                        <form name="imgForm" id="imgForm" enctype="multipart/form-data" action="图片上传接口" method='post'>
+                        <input class="input-loc-img"  name="imgLocal" id="imgLocal" type='file' accept="image/*" @change="selectImg" />
+                         </form> 
                     </div>
                 </form>
-            </div>  
-    </div>
+            </div>
+        </div>
+</div>
 </template>
 <script>
 import axios from 'axios';
@@ -31,7 +38,10 @@ export default {
             ISBN:'',
             author:'',
             bookid:'',
-            book:''
+            book:'',
+            imgChangeStatus:0,
+            imgFile:''
+
         }
     },
     mounted:function(){
@@ -85,49 +95,80 @@ export default {
     tochangeImg(){
          var that=this;
          console.log(that.bookid);
-         that.$router.push({ path:'/edit/image/'+that.bookid})
+         //that.$router.push({ path:'/edit/image/'+that.bookid})
+         that.imgChangeStatus=1;
     },
+    selectImg(e){
+            e.preventDefault();
+            let that=this;
+            
+            let imgFile = e.target.files[0];//取到上传的图片
+            let formData=new FormData();//通过formdata上传
+            formData.append('avatar',imgFile);
+            axios({
+                method: 'POST',
+                url:'/api/book/'+that.bookid+'/img', 
+                data:formData,
+                headers:{
+                    'Content-Type':'multipart/form-data'
+                }
+            
+            })
+           .then(function (res) {
+            console.log(res.data);
+            if(res.data=="Created"){
+                that.$router.push({path:'/'});
+            }
+            }).catch(function(error){
+            console.log(error);
+            })
+            
+        }
     
     }
    
 }
 </script>
 <style>
-.bookEdit{
+.editBooks{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-
- 
+    height:100vh;
+    background-image: url(/static/images/timg.jpg)
 }
-.edit{
-    height:143px;
-    background:no-repeat;
+.Edit{
+    height:500px;
    
 }
-form p > *{
-    display: inline-block;
-    vertical-align: middle;
+label{
+    height:30px;
+    width:100px;
+    background-color:write;
+    border-radius:5px;
+    text-align: left;
+    padding-top:5px;
+    margin-top:20px;
 }
-.label_input{
-   font-size: 14px;
-    font-family: 宋体;
- 
-    width: 65px;
-    height: 28px;
-    line-height: 28px;
+input{
+   height:30px;
+    width:80%;
+    border:1px solid white;
+    border-radius: 5PX;
     text-align: center;
- 
-    color: white;
-    background-color: #3CD8FF;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-    margin-top: 10px;
- 
+    margin-top:20px;
 }
-#submit_control {
-    padding: 0 28px;
+.edit_item{
+    display:flex;
+    flex-flow: row;
+}
+.edit_control{
+    display:flex;
+    flex-flow: row;
+    margin-top:20px;
+}
+p{
+    flex:50%
 }
 </style>
 

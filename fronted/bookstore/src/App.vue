@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     
-  
+   <div @click="prev" style="text-align:left;margin-left:20px;"> < </div>
     <router-view/>
    
   </div>
@@ -9,7 +9,7 @@
 
 <script >
 import myfooter from '@/components/footer.vue'
-import { getTest } from '@/api/testAPI';
+//import { getTest } from '@/api/testAPI';
 
 export default {
   name: 'App',
@@ -55,15 +55,18 @@ var that=this;
     }
   },
   methods:{
-   httpGet() {
+  /* httpGet() {
      this.getTest('mock').then(response => {
        this.Data=response.data;
      });
      
     console.log('测试方法');
    }
+   */
   
-    
+    prev(){
+      this.$router.go(-1);
+    }
    },
   
   
