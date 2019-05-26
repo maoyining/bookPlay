@@ -57,7 +57,6 @@ module.exports = {
       }).intercept((err) => {
         return exits.fail({info: err})
       });
-
       return exits.success({
         info: "add a book successfully"
       })

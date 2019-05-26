@@ -28,7 +28,7 @@ module.exports = {
 
   fn: async function (inputs, exits) {
     if (this.req.session.admin == true) {
-      let info = await Book.destroy({
+      await Book.destroy({
 
         bookName: inputs.bookName,
         ISBN: inputs.ISBN,
@@ -37,8 +37,8 @@ module.exports = {
         return exits.fail({ info: err })
       }).fetch();
 
-      console.log(info)
       return exits.success({ info: "success to delete" })
+
     }else{
       return exits.forbbiden({info:'forbbiden'})
     }

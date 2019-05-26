@@ -16,11 +16,13 @@
     "sails-mysql": "^1.0.1"
   },
   "devDependencies": {
-    "@sailshq/eslint": "^4.19.3"
+    "@sailshq/eslint": "^4.19.3",
+    "mocha": "^6.1.4",
+    "supertest": "^4.0.2"
   },
   "scripts": {
     "start": "nodemon app.js",
-    "test": "npm run lint && npm run custom-tests && echo 'Done.'",
+    "test": "node ./node_modules/mocha/bin/mocha test/lifecycle.test.js test/integration/**/*.test.js",
     "lint": "eslint . --max-warnings=0 --report-unused-disable-directives && echo '✔  Your .js files look good.'",
     "custom-tests": "echo \"(No other custom tests yet.)\" && echo"
   },
