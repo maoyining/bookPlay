@@ -3,17 +3,20 @@
         <div class="loginin" >
            
           <div class="login">
-                <p style="text-align:center;color:black"><strong>用户登录</strong></p>
-                <form action='' method="post">
+                <h1 style="text-align:center;color:white;"><strong>Login</strong></h1>
+                <form action='' method="post" >
+                    
                     <input v-model="username" placeholder="用户名" class="login_item">
                     <input v-model="password" placeholder="请输入密码" type="password" class="login_item">
                      <div class="login_control">
-                        <p class= "control_item" form-type='submit' @click="submitLogin($event)" style="color:black"><strong>登录</strong></p>
+                        <p class= "control_item" form-type='submit' @click="submitLogin($event)" style="color:white"><strong>登录</strong></p>
                    
-                        <p class= "control_item"><router-link to="/register" style="text-decoration:none;color:black"><strong>我要注册</strong></router-link></p>
-                        <p class= "control_item"><router-link to="/" style="text-decoration:none;color:black"><strong>取消登录</strong></router-link></p>
+                        <p class= "control_item"><router-link to="/register" style="text-decoration:none;color:white"><strong>我要注册</strong></router-link></p>
+                        <p class= "control_item"><router-link to="/" style="text-decoration:none;color:white"><strong>取消登录</strong></router-link></p>
                     </div>
+                    
                 </form>
+                <div style="height:10px;width:200px;border-top:1px solid white"></div>
             </div>
         </div>
     
@@ -87,11 +90,14 @@ export default {
     display: flex;
     align-items: center;
     height: 100vh;
-    background-image: url(/static/images/timg.jpg)
+    
+    background-color:#0e4d66;
 }
 .login{
     height:200px;
-    width:100%;
+    margin:20%;
+    width:80%;
+   
 }
 .login_item{
     height:30px;
@@ -100,15 +106,22 @@ export default {
     border-radius: 5PX;
     text-align: center;
     margin-top:20px;
+     
 }
 .login_control{
     display: flex;
     flex-flow: row;
     text-align: center;
     margin-top:20px;
+    
+
 }
 .control_item{
     flex: 33%;
+}
+input{
+    border:none;
+    outline:none;
 }
 </style>
 

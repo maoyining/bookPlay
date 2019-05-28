@@ -14,6 +14,29 @@
             <div class="message_item"><router-link to='/add' style="text-decoration:none;color:black"><h4>添加图书</h4></router-link></div>
             <div class="message_item" style="margin-left:265px">></div>
         </div>
+        <form>
+            <fieldset>
+                <legend>个人信息</legend>
+                 <div class="input-group row">
+                    <div class="col-sm">
+                        <label for="username">Username</label>
+                            <input type="text" id="Username" placeholder="Username"/>
+                    </div>
+                    <div class="col-sm">
+                        <label for="sex">性别</label>
+                            <input type="text" id="sex" placeholder="sex"/>
+                    </div>
+                    <div class="col-sm">
+                        <label for="birthdaty">生日</label>
+                            <input type="text" id="birthday" placeholder="birthday"/>
+                    </div>
+                    <div class="col-sm">
+                        <label for="address">住址</label>
+                            <input type="text" id="address" placeholder="address"/>
+                    </div>
+                </div>
+             </fieldset>
+        </form>
         
         
         
