@@ -1,14 +1,21 @@
-# 前端页面
-# 2019.3.1更新前端登录界面
-#### 一个月过去了...
-2019.4.9日注册和登录写完了...
-#### 2019.4.23
-1. 图书管理员的删除和修改还没有在bookdetail里面把footer修改掉
-2. 搜索功能没做
-3. 图书管理者看见的图书的UI也没弄...
-4. 我的现在的ui也好丑...
-5. socket还没写，评论区，简介也没弄...
-6. 注册和登录的页面跳转还有些问题...应该跳转到之前页面才对，不是一直跳转到同一个页面
-#### 2019.4.30
-#####websocket
-现在可以进行socket的连接了，准备使用socket.io库试试了
+# bookstore
+
+> A Vue.js project
+
+## Build Setup
+
+``` bash
+# install dependencies
+npm install
+
+# serve with hot reload at localhost:8080
+npm run dev
+
+# build for production with minification
+npm run build
+
+# build for production and view the bundle analyzer report
+npm run build --report
+```
+
+For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
