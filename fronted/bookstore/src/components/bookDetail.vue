@@ -13,9 +13,10 @@
             </div>
             <div >
                 <h3 style="border-bottom:1px solid rgba(7, 17,27, 0.1);padding-left:20px;width:100%; margin-top:10px;text-align:left">简介</h3>
-                <p>{{jianjie}}</p>
+                <p>{{book.content}}</p>
             </div>
         </div>
+        <!--
         <div class="footerdetail" v-if="!admin">
              <div class="city" ><router-link to='/' style="text-decoration:none;color:black"><img src="/static/images/领读.png"><div > 书城</div> </router-link></div>
              <div class="city"  v-if="!collect" @click="like()"><img src="/static/images/收藏.png" ><div> 加入书桌</div> </div>
@@ -26,7 +27,8 @@
              <div class="city" @click="tochange()"><img src="/static/images/修改鸭.png"><div > 修改图书</div> </div>
              <div class="city"  @click="deleteBook()"><img src="/static/images/删除鸭.png" ><div> 删除图书</div> </div>
              <div class="city" ><router-link to='/my' style="text-decoration:none;color:black"><img src="/static/images/我的鸭.png"> <div>我的</div> </router-link></div>
-        </div>
+        </div>-->
+        <my></my>
     </div>
      
 </template>
@@ -49,7 +51,7 @@ export default {
             num:this.$store.state.num,
             imageUrl:'',
             imageSrc:'',
-            jianjie:"  本书收录了加缪的《局外人》与《鼠疫》两部作品。《局外人》讲述了一个叫默尔索的小职员因过失杀人被指控，*终却因为他在母亲的葬礼上没有流泪而被判处死刑的故事。在这部小说中，加缪以一个与社会格格不入的“局外人”的视角，用客观、冷静的语调，通过默尔索经历的一场假借法律之名的道德审判，深刻地揭示了这世界的荒谬性。"
+            content:''
     }
   },
   watch:{

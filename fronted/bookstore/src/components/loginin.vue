@@ -1,25 +1,46 @@
 <template>
-
+    <div>
         <div class="loginin" >
-           
+           <!--
           <div class="login">
-                <h1 style="text-align:center;color:white;"><strong>Login</strong></h1>
+                <h1 style="text-align:center;"><strong>Login</strong></h1>
                 <form action='' method="post" >
                     
                     <input v-model="username" placeholder="用户名" class="login_item">
                     <input v-model="password" placeholder="请输入密码" type="password" class="login_item">
                      <div class="login_control">
-                        <p class= "control_item" form-type='submit' @click="submitLogin($event)" style="color:white"><strong>登录</strong></p>
+                        <p class= "control_item" form-type='submit' @click="submitLogin($event)" ><strong>登录</strong></p>
                    
-                        <p class= "control_item"><router-link to="/register" style="text-decoration:none;color:white"><strong>我要注册</strong></router-link></p>
-                        <p class= "control_item"><router-link to="/" style="text-decoration:none;color:white"><strong>取消登录</strong></router-link></p>
+                        <p class= "control_item"><router-link to="/register" style="text-decoration:none;"><strong>我要注册</strong></router-link></p>
+                        <p class= "control_item"><router-link to="/" style="text-decoration:none;"><strong>取消登录</strong></router-link></p>
                     </div>
                     
                 </form>
-                <div style="height:10px;width:200px;border-top:1px solid white"></div>
-            </div>
+                <div style="height:10px;width:200px;"></div>
+            </div>-->
+        <div class="login">
+            <h1 style="text-align:center;color:white"><strong>Login</strong></h1>
+             <form action='' method="post" >
+                        
+               <div class="row">
+      <div class="col-sm-12 col-md-6">
+        <label for="username">Username</label>
+        <input v-model="username" placeholder="Username"/>
+      </div>
+      <div class="col-sm-12 col-md-6">
+        <label for="password">Password</label>
+        <input type="password" v-model="password" placeholder="Password"/>
+      </div>
+    </div>
+ 
+           <button form-type='submit' @click="submitLogin($event)" >登录</button>
+            <button><router-link to="/register" style="text-decoration:none;">注册</router-link></button>
+        </form>
         </div>
-    
+        
+        </div>
+       
+    </div>
 </template>
 <script>
 import axios from 'axios';
@@ -90,7 +111,7 @@ export default {
     display: flex;
     align-items: center;
     height: 100vh;
-    
+   
     background-color:#0e4d66;
 }
 .login{
@@ -102,7 +123,7 @@ export default {
 .login_item{
     height:30px;
     width:80%;
-    border:1px solid white;
+  
     border-radius: 5PX;
     text-align: center;
     margin-top:20px;
@@ -119,9 +140,15 @@ export default {
 .control_item{
     flex: 33%;
 }
-input{
-    border:none;
-    outline:none;
+
+.userName{
+    height:50px;
+    width:80%;
+   
+    margin:10%;
+    margin-top:50px;
+    border-top:1px solid rgb(161, 156, 156);
+    border-bottom:1px solid rgb(161, 156, 156);
 }
 </style>
 

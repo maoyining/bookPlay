@@ -17,9 +17,9 @@
         <form>
             <fieldset>
                 <legend>个人信息</legend>
-                 <div class="input-group row">
+                
                     <div class="col-sm">
-                        <label for="username">Username</label>
+                        <label for="username">User</label>
                             <input type="text" id="Username" placeholder="Username"/>
                     </div>
                     <div class="col-sm">
@@ -34,7 +34,7 @@
                         <label for="address">住址</label>
                             <input type="text" id="address" placeholder="address"/>
                     </div>
-                </div>
+               
              </fieldset>
         </form>
         

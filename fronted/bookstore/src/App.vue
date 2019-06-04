@@ -1,15 +1,14 @@
 <template>
   <div id="app">
     
-   <div @click="prev" style="text-align:left;margin-left:20px;"> < </div>
+   <div @click="prev" style="text-align:left;margin-left:20px;">  </div>
     <router-view/>
-   
+   <myfooter></myfooter>
   </div>
 </template>
 
 <script >
-import myfooter from '@/components/footer.vue'
-//import { getTest } from '@/api/testAPI';
+
 
 export default {
   name: 'App',
@@ -22,7 +21,7 @@ export default {
     }
   },
   
-components:{myfooter},
+
   
   mounted(){ 
    // this.initWebSocket();
@@ -84,4 +83,5 @@ var that=this;
   color: #2c3e50;
 
 }
+
 </style>
