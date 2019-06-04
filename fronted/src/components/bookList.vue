@@ -1,5 +1,5 @@
 <template >
-    <div class="bookList" style="height:100%">
+    <div class="bookList" style="margin-top:20px;">
       <booksTemp></booksTemp>
       <myfooter></myfooter>
    

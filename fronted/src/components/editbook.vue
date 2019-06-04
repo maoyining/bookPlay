@@ -2,7 +2,7 @@
 <div>
    
      <div class="editBooks" >
-            <div class="Edit">
+           
                 <p ><img v-bind:src=" book.imageUrl| changeUrl" alt=" " style="height:100px"></p>
                 <form action='' method="post">
                     <div class="edit_item"><label class="label_input">图书名称</label><input   v-model="book.bookName" ></div>
@@ -23,7 +23,7 @@
                 </form>
             </div>
         </div>
-</div>
+
 </template>
 <script>
 import axios from 'axios';
@@ -137,10 +137,7 @@ export default {
     height:100vh;
     background-image: url(/static/images/timg.jpg)
 }
-.Edit{
-    height:500px;
-   
-}
+
 label{
     height:30px;
     width:100px;
