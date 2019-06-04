@@ -1,15 +1,14 @@
 <template>
   <div id="app">
     
-   <div @click="prev" style="text-align:left;margin-left:20px;"> < </div>
+   <div @click="prev" style="text-align:left;margin-left:20px;">  </div>
     <router-view/>
-   
+  
   </div>
 </template>
 
 <script >
-import myfooter from '@/components/footer.vue'
-//import { getTest } from '@/api/testAPI';
+
 
 export default {
   name: 'App',
@@ -22,7 +21,7 @@ export default {
     }
   },
   
-components:{myfooter},
+
   
   mounted(){ 
    // this.initWebSocket();
@@ -46,24 +45,11 @@ var that=this;
    
   },
   
-  destroyed(){
-     //this.socket.onclose=this.close//断开websocket连接
-  },
+  
   computed:{
-    httpError(){
-      return this.$store.state.httpError;
-    }
+   
   },
   methods:{
-  /* httpGet() {
-     this.getTest('mock').then(response => {
-       this.Data=response.data;
-     });
-     
-    console.log('测试方法');
-   }
-   */
-  
     prev(){
       this.$router.go(-1);
     }
@@ -84,4 +70,5 @@ var that=this;
   color: #2c3e50;
 
 }
+
 </style>

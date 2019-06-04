@@ -41,6 +41,7 @@ export default {
             
             console.log(that.booklist);
             
+            
         })
         .catch(function(error){
             console.log(error);

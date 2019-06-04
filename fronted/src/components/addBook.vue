@@ -2,22 +2,40 @@
 
         <div class="addBooks" >
             
-            <div class="Add">
-                <p style="color:black;text-align:center">添加图书</p>
-                <form action='' method="post">
-                    <div class="add_item"><label class="label_input">图书名称</label><input   v-model="bookName" placeholder="图书名称" value="bookName"></div>
-                    <div class="add_item"><label class="label_input">图书价格</label><input  v-model="bookPrice" placeholder="图书价格" value="bookPrice"></div>
-                    <div class="add_item"><label class="label_input">图书出版社</label><input  v-model="bookPub" placeholder="图书出版社" value="bookPub"></div>
-                    <div class="add_item"><label class="label_input">图书作者</label><input  v-model="author" placeholder="图书作者" value="author"></div>
-                    <div class="add_item"><label class="label_input">图书编号</label><input  v-model="ISBN" placeholder="图书编号" value="ISBN"></div>
-                    <div class="add_control">
-                        <p form-type='submit' @click="addBook($event)" style="color:black"><strong>添加</strong></p>
-                        <p ><router-link to='/my' style="text-decoration:none;color:black"><strong>取消</strong></router-link></p>
+            
+             
+        <form>
+            <fieldset>
+                <legend>添加图书</legend>
+                    <div class="col-sm">
+                        <label for="Bookname">Bookname</label>
+                            <input v-model="bookName" placeholder="图书名称" value="bookName"/>
                     </div>
-                </form>
+                    <div class="col-sm">
+                        <label for="Price">Price</label>
+                            <input v-model="bookPrice" placeholder="图书价格" value="bookPrice"/>
+                    </div>
+                    <div class="col-sm">
+                        <label for="BookPub">BookPub</label>
+                            <input v-model="bookPub" placeholder="图书出版社" value="bookPub"/>
+                    </div>
+                    <div class="col-sm">
+                        <label for="author">author</label>
+                            <input v-model="author" placeholder="图书作者" value="author"/>
+                    </div>
+                    <div class="col-sm">
+                        <label for="ISBN">ISBN</label>
+                            <input v-model="ISBN" placeholder="图书编号" value="ISBN"/>
+                    </div>
+                    <div class="col-sm">
+                        <label for="Content">Content</label>
+                            <input v-model="content" placeholder="图书内容" value="content"/>
+                    </div>
+             </fieldset>
+              <button form-type='submit' @click="addBook($event)" style="color:black"><strong>添加</strong></button>
+            <button ><router-link to='/my' style="text-decoration:none;color:black"><strong>取消</strong></router-link></button>
+        </form>
             </div>
-        </div>
-    
 </template>
 <script>
 import axios from 'axios';
@@ -32,7 +50,8 @@ export default {
       bookPrice:'',
       bookPub:'',
       ISBN:'',
-      author:''
+      author:'',
+      content:''
 
 
     } 
@@ -56,7 +75,8 @@ export default {
                bookPrice:this.bookPrice,
                bookPub:this.bookPub,
                ISBN:this.ISBN,
-               author:this.author 
+               author:this.author,
+               content:this.content
             }
             
         })
