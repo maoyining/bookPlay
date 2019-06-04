@@ -1,14 +1,15 @@
 <template>
   <div id="app">
-   
+    
+   <div @click="prev" style="text-align:left;margin-left:20px;"> < </div>
     <router-view/>
-  
+   
   </div>
 </template>
 
 <script >
-
-
+import myfooter from '@/components/footer.vue'
+//import { getTest } from '@/api/testAPI';
 
 export default {
   name: 'App',
@@ -16,16 +17,17 @@ export default {
     return {
       
       socket:"",
-      param:'aaa'
+      param:'aaa',
+      Data:'yyy'
     }
   },
   
-
+components:{myfooter},
   
   mounted(){ 
    // this.initWebSocket();
    
-
+var that=this;
 
   var io = require('sails.io.js')( require('socket.io-client') );
 
@@ -35,56 +37,36 @@ export default {
   //监听事件，若有人收藏或者有人取消收藏，则会触发该事件
    
   io.socket.on('message', function (data) {
-   console.log('图书ID：');
-   console.log(data.id);
-   console.log("当今收藏人数：")
-    console.log(data.greeting);
+   
+    that.$store.dispatch('getNewBookid',data.id); //保存图书id
+    that.$store.dispatch('getNewNum',data.greeting); //保存图书收藏人数
     
   });
  
-
+   
   },
   
   destroyed(){
      //this.socket.onclose=this.close//断开websocket连接
   },
-  
+  computed:{
+    httpError(){
+      return this.$store.state.httpError;
+    }
+  },
   methods:{
-   
-  //   initWebSocket(){
-  //     if(typeof(WebSocket) === "undefined"){
-  //               alert("您的浏览器不支持socket")
-  //           }else{
-  //               // 实例化socket
-  //               this.socket = new WebSocket('ws://localhost:1337')
-  //               // 监听socket连接
-  //               this.socket.onopen = this.open
-  //               // 监听socket错误信息
-  //               this.socket.onerror = this.error
-  //               // 监听socket消息
-  //               this.socket.onmessage = this.getMessage
-  //           }
-  //   },
-  //   open(){
-  //     console.log("socket连接成功")
-  //     console.log(this.socket);
-  //   },
-  //   error(){
-  //     this.initWebSocket();
-  //     console.log("socket连接失败")
-  //   },
-  //   getMessage:function(e){
-  //      console.log(e);
-  //   },
-  //   send(){
-  //     let that=this;
-  //     this.socket.send(that.param);
-  //     console.log('发送成功');
-  //   },
-  //   close(){
-  //     console.log('断开连接');
-  //   },
-    
+  /* httpGet() {
+     this.getTest('mock').then(response => {
+       this.Data=response.data;
+     });
+     
+    console.log('测试方法');
+   }
+   */
+  
+    prev(){
+      this.$router.go(-1);
+    }
    },
   
   
@@ -100,6 +82,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 20px;
+
 }
 </style>

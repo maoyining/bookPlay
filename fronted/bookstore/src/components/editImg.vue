@@ -22,19 +22,14 @@ export default {
         selectImg(e){
             e.preventDefault();
             let that=this;
-            //console.log(e);
+            
             let imgFile = e.target.files[0];//取到上传的图片
-            //console.log(imgFile);
             let formData=new FormData();//通过formdata上传
             formData.append('avatar',imgFile);
-            console.log("看看这里传过去的"+formData.get('file'));
-           
-           
             axios({
                 method: 'POST',
                 url:'/api/book/'+that.bookid+'/img', 
                 data:formData,
-               
                 headers:{
                     'Content-Type':'multipart/form-data'
                 }

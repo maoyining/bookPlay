@@ -5,7 +5,7 @@
         </div>
             <bookTemp></bookTemp>
         <div class="footer">
-            <button style="width:100%;height:50px;"><router-link to="/add"><h4>添加图书</h4></router-link></button>
+            <button style="width:100%;height:50px;"><router-link to="/add" style="text-decoration:none;color:black"><h4>添加图书</h4></router-link></button>
         </div>
         
     </div>

@@ -1,79 +1,53 @@
 <template>
   <div class="container">
     <div class="my">
-        <p style="text-align:right">编辑</p>
+        <p style="text-align:right" @click="changeInformation()">编辑</p>
         <div class="user">
             <h2 v-if="loginin" class="userName" @click="logout1">{{userName}}</h2>
-            <h2 v-if="!loginin" class="userName"><router-link to='/login'>登录</router-link></h2>
-            <div class="userImg"><img src="/static/images/用户头像-01.png"></div>
+            <h2 v-if="!loginin" class="userName"><router-link to='/login' style="text-decoration:none;color:black">登录</router-link></h2>
+            
         </div>
-        <div class="state">
-            <p> {{books}} </p>
-            <p>境界：{{boundar}}</p>
-        </div>
-        <div class="message">
-            <div class="message_item" style="height:16px;padding-left:10px;"><img src="/static/images/消息.png"></div>
-            <div class="message_item"><h4>消息</h4></div>
-            <div class="message_item" style="margin-left:300px">></div>
-        </div>
-        <div class="message">
-            <div class="message_item" style="height:16px;padding-left:10px;"><img src="/static/images/团队.png"></div>
-            <div class="message_item"><h4>我的阅读图书</h4></div>
-            <div class="message_item" style="margin-left:235px">></div>
-        </div>
-        <div class="message">
-            <div class="message_item" style="height:16px;padding-left:10px;"><img src="/static/images/消息.png"></div>
-            <div class="message_item"><h4>我的书评</h4></div>
+       
+         <div style="border-bottom: 1px solid rgba(7, 17,27, 0.2)"></div>
+        <div class="message" v-if="admin">
+            <div class="message_item" style="height:16px;padding-left:10px;"><img src="/static/images/添加.png"></div>
+            <div class="message_item"><router-link to='/add' style="text-decoration:none;color:black"><h4>添加图书</h4></router-link></div>
             <div class="message_item" style="margin-left:265px">></div>
         </div>
-        <div class="message" style="border-bottom: 1px solid rgba(7, 17,27, 0.1);">
-            <div class="message_item" style="height:16px;padding-left:10px;"><img src="/static/images/疑问.png"></div>
-            <div class="message_item"><h4>我的问答</h4></div>
-            <div class="message_item" style="margin-left:265px">></div>
-        </div>
-        <div class="message" >
-            <div class="message_item" style="height:16px;padding-left:10px;"><img src="/static/images/会员.png"></div>
-            <div class="message_item"><h4>开通会员</h4></div>
-            <div class="message_item" style="margin-left:260px">></div>
-        </div>
-        <div class="message" >
-            <div class="message_item" style="height:16px;padding-left:10px;"><img src="/static/images/订单.png"></div>
-            <div class="message_item"><h4>我的订单</h4></div>
-            <div class="message_item" style="margin-left:260px">></div>
-        </div>
-        <div class="message" style="border-bottom: 1px solid rgba(7, 17,27, 0.1);">
-            <div class="message_item" style="height:16px;padding-left:10px;"><img src="/static/images/购物车.png"></div>
-            <div class="message_item"><h4>我的购物车</h4></div>
-            <div class="message_item" style="margin-left:245px">></div>
-        </div>
-        <div class="message" >
-            <div class="message_item" style="height:16px;padding-left:10px;"><img src="/static/images/邀请.png"></div>
-            <div class="message_item"><h4>邀请好友</h4></div>
-            <div class="message_item" style="margin-left:260px">></div>
-        </div>
-        <div class="message" style="border-bottom: 1px solid rgba(7, 17,27, 0.1);">
-            <div class="message_item" style="height:16px;padding-left:10px;"><img src="/static/images/卡券.png"></div>
-            <div class="message_item"><h4>我的卡券</h4></div>
-            <div class="message_item" style="margin-left:260px">></div>
-        </div>
-         <div class="message" >
-            <div class="message_item" style="height:16px;padding-left:10px;"><img src="/static/images/客服.png"></div>
-            <div class="message_item"><h4>在线客服</h4></div>
-            <div class="message_item" style="margin-left:195px">意见反馈></div>
-        </div>
-        <div class="message" style="border-bottom: 1px solid rgba(7, 17,27, 0.1);">
-            <div class="message_item" style="height:16px;padding-left:10px;"><img src="/static/images/设置.png"></div>
-            <div class="message_item"><h4>设置</h4></div>
-            <div class="message_item" style="margin-left:290px">></div>
-        </div>
+        <form>
+            <fieldset>
+                <legend>个人信息</legend>
+                 <div class="input-group row">
+                    <div class="col-sm">
+                        <label for="username">Username</label>
+                            <input type="text" id="Username" placeholder="Username"/>
+                    </div>
+                    <div class="col-sm">
+                        <label for="sex">性别</label>
+                            <input type="text" id="sex" placeholder="sex"/>
+                    </div>
+                    <div class="col-sm">
+                        <label for="birthdaty">生日</label>
+                            <input type="text" id="birthday" placeholder="birthday"/>
+                    </div>
+                    <div class="col-sm">
+                        <label for="address">住址</label>
+                            <input type="text" id="address" placeholder="address"/>
+                    </div>
+                </div>
+             </fieldset>
+        </form>
+        
+        
+        
+      
+        
+        
+        
         
         
     </div>
-    <!--注销功能放到编辑里面
-            <div class="logout" @click="logout1()">
-            <button v-if="loginin" style="height:50px;width:100%">退出登录</button>
-            </div>
-    -->
+   
     <myfooter></myfooter>
     </div>
 </template>
@@ -87,10 +61,7 @@ export default {
             userName:'',
             loginin:'',
             admin:'',
-            user:[
-                {imgUrl:'../static/images/用户头像-01.png',books:'5'}
-                ],
-            boundar:'衣带渐宽',
+           
             books:'5'
 
         }
@@ -120,18 +91,11 @@ export default {
                     }
             })
             .then(function(response){
-                console.log(response);
                 if(response.data.info==true)
                 {
                     that.$store.dispatch('getNewLoginin',false); //登录状态取消
                     console.log(that.$store.state.loginin);
                     that.loginin=false;
-                   // that.$store.dispatch('getNewAdmin',false); //状态取消
-                    
-                   // that.$store.dispatch('getNewUserid',100);//保存用户的id
-                    
-                   // that.$store.dispatch('getNewUserName',yyy);//保存用户的id
-                    
                     that.$router.push({path:'/my'});
             } 
             })
@@ -140,6 +104,9 @@ export default {
 
             })
            
+        },
+        contact(){
+            alert("QQ:1418264042");
         }
     }
 }
@@ -168,8 +135,9 @@ export default {
 .user{
     display: flex;
     flex-flow: row;
-    border-bottom: 1px solid rgba(7, 17,27, 0.2);
+    
     margin-top: 10px;
+    margin-bottom: 10px;
 }
 .userImg{
     display: flex;
@@ -178,7 +146,7 @@ export default {
 .userName{
     display: flex;
     flex:0 0 50%;
-    justify-content: left; 
+    margin-left: 20px; 
 }
 .state{
     margin-top: 10px;

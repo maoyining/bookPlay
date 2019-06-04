@@ -11,6 +11,8 @@ import VueRouter from 'vue-router';
 import socketio from 'socket.io-client';
 import VueSocketio from 'vue-socket.io';
 
+
+
 //import '../static/js/sails.io.js';
 /*
 Vue.use(
@@ -19,6 +21,7 @@ Vue.use(
  */
 Vue.prototype.$http=axios
 Vue.config.productionTip = false
+
 
 Vue.use(VueResource)
 /* eslint-disable no-new */
