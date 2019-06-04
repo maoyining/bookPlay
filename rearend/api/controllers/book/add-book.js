@@ -23,9 +23,12 @@ module.exports = {
       type: 'string',
       required: true,
     },
-    content:{
-      type:'string',
-      required:true
+    content: {
+      type: 'string',
+      required: true
+    },
+    cateID: {
+      type: 'number'
     }
   },
 
@@ -36,8 +39,8 @@ module.exports = {
     fail: {
       statusCode: 400,
     },
-    forbbiden:{
-      statusCode:403
+    forbbiden: {
+      statusCode: 403
     }
   },
 
@@ -52,16 +55,19 @@ module.exports = {
         bookPub: inputs.bookPub,
         author: inputs.author,
         ISBN: inputs.ISBN,
-        content:inputs.content
-
+        content: inputs.content,
+        category: inputs.cateID
       }).intercept((err) => {
-        return exits.fail({info: err})
+        return exits.fail({ info: err })
       });
+      //await Book.addToCollection(inputs.bookID, 'category', inputs.cateID);
+      // await Category.addToCollection(inputs.cateID, 'books',1)
+
       return exits.success({
         info: "add a book successfully"
       })
-    }else{
-      return exits.forbbiden({info:'forbbiden'})//非管理员禁止访问
+    } else {
+      return exits.forbbiden({ info: 'forbbiden' })//非管理员禁止访问
     }
   }
 }
