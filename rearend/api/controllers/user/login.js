@@ -34,7 +34,7 @@ module.exports = {
      // password: inputs.password,
     })
 
-
+  
     try{
       await sails.helpers.passwords.checkPassword(inputs.password, userInfo.password)
       

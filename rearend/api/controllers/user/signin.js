@@ -34,7 +34,7 @@ module.exports = {
   },
 
   fn: async function (inputs, exits) {
-    //var hashed = await sails.helpers.passwords.hashPassword(inputs.password);
+  
    
     try {
       await User.create({
@@ -44,11 +44,11 @@ module.exports = {
       })
       var info = await User.findOne({
         username: inputs.username,
-        password: inputs.password,
+       // password: hashed,//inputs.password,
         email: inputs.email,
       })
      
-      return exits.success({userId: info})
+      return exits.success({userId: info.id})
     } catch (err) {
       return exits.fail({info: err})
     }

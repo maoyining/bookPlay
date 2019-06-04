@@ -46,7 +46,15 @@ module.exports = {
     values.password = await sails.helpers.passwords.hashPassword(values.password);
 
     return next();
-  }
+  },
+  beforeUpdate: async (values, next) => {
+    if (false === values.hasOwnProperty('password')) { return next(); }
+
+    values.password = await sails.helpers.passwords.hashPassword(values.password);
+
+    return next();
+  },
+
  
 };
 
