@@ -31,16 +31,18 @@ module.exports = {
   fn: async function (inputs, exits) {
     var userInfo = await User.findOne({
       username: inputs.username,
-      password: inputs.password,
+     // password: inputs.password,
     })
 
-    if (userInfo) {
 
+    try{
+      await sails.helpers.passwords.checkPassword(inputs.password, userInfo.password)
+      
       this.req.session.userId = userInfo.id
       this.req.session.admin = userInfo.admin
       return exits.success({ info: userInfo })
-    } else {
-      return exits.fail()
+    }catch(err){
+      return exits.fail();
     }
   }
 }

@@ -54,7 +54,7 @@ module.exports.models = {
   ***************************************************************************/
 
    migrate: 'safe',
-
+//safe
 
   /***************************************************************************
   *                                                                          *
@@ -71,7 +71,7 @@ module.exports.models = {
   attributes: {
     createdAt: { type: 'number', autoCreatedAt: true, },
     updatedAt: { type: 'number', autoUpdatedAt: true, },
-    //id: { type: 'number', autoIncrement: true, },
+    id: { type: 'number', autoIncrement: true, },
     //--------------------------------------------------------------------------
     //  /\   Using MongoDB?
     //  ||   Replace `id` above with this instead:

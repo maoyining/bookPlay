@@ -8,14 +8,16 @@
 module.exports = {
 
   attributes: {
-    id:{
-      type:'number',
-      autoIncrement: true,
-    },
+    // id:{
+    //   type:'number',
+    //   autoIncrement: true,
+    // },
     username:{
    
       type:'string',
+      unique:true,
       required:true,
+      
     },
     password:{
      
@@ -35,8 +37,16 @@ module.exports = {
       collection: 'book',
       via: 'user',
        
-    }
+    },
+    
+  
   },
+  beforeCreate: async (values, next) => {
+
+    values.password = await sails.helpers.passwords.hashPassword(values.password);
+
+    return next();
+  }
  
 };
 
