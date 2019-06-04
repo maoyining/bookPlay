@@ -3,20 +3,7 @@
         <div class="addBooks" >
             
             
-                <!--
-                <form action='' method="post">
-                    <div class="add_item"><label class="label_input">图书名称</label><input   v-model="bookName" placeholder="图书名称" value="bookName"></div>
-                    <div class="add_item"><label class="label_input">图书价格</label><input  v-model="bookPrice" placeholder="图书价格" value="bookPrice"></div>
-                    <div class="add_item"><label class="label_input">图书出版社</label><input  v-model="bookPub" placeholder="图书出版社" value="bookPub"></div>
-                    <div class="add_item"><label class="label_input">图书作者</label><input  v-model="author" placeholder="图书作者" value="author"></div>
-                    <div class="add_item"><label class="label_input">图书编号</label><input  v-model="ISBN" placeholder="图书编号" value="ISBN"></div>
-                    <div class="add_item"><label class="label_input">内容</label><input  v-model="content" placeholder="图书内容" value="content"></div>
-
-                    <div class="add_control">
-                        <p form-type='submit' @click="addBook($event)" style="color:black"><strong>添加</strong></p>
-                        <p ><router-link to='/my' style="text-decoration:none;color:black"><strong>取消</strong></router-link></p>
-                    </div>
-                </form>-->
+             
         <form>
             <fieldset>
                 <legend>添加图书</legend>
@@ -49,8 +36,6 @@
             <button ><router-link to='/my' style="text-decoration:none;color:black"><strong>取消</strong></router-link></button>
         </form>
             </div>
-       
-    
 </template>
 <script>
 import axios from 'axios';
