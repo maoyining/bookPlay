@@ -40,6 +40,9 @@ module.exports = {
     user: {
       collection: 'user',
       via: 'book',
+    },
+    category: {
+      model: 'category'
     }
     
    

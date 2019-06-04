@@ -37,6 +37,8 @@ module.exports.routes = {
   'POST /book': { action: 'book/add-book' },//增加一本图书的信息，只有图书管理员能访问
   'POST /book/:bookId?/img': { action: 'user/upload-images' }, //上传某本图书的图片，只有图书管理员可以访问
   
+  'POST /category': { action: 'category/add-category' },
+
   'PUT /book/:bookId?':{action:'book/update-book'},
   'DELETE /book': { action: 'book/delete-book' },//删除图书，只有图书管理员可以访问
   'POST /password':{action:'user/update-password'}

@@ -29,6 +29,9 @@ module.exports = {
       content:{
         type:'string',
 
+      },
+      cateID:{
+        type:'number'
       }
     },
   
@@ -55,8 +58,8 @@ module.exports = {
           bookPub: inputs.bookPub,
           author: inputs.author,
           ISBN: inputs.ISBN,
-          content:inputs.content
-  
+          content:inputs.content,
+          category:inputs.cateID
         })
         if(updateBook){
             return exits.success({
