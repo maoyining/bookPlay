@@ -3,7 +3,7 @@
     
    <div @click="prev" style="text-align:left;margin-left:20px;">  </div>
     <router-view/>
-   <myfooter></myfooter>
+  
   </div>
 </template>
 
@@ -45,24 +45,11 @@ var that=this;
    
   },
   
-  destroyed(){
-     //this.socket.onclose=this.close//断开websocket连接
-  },
+  
   computed:{
-    httpError(){
-      return this.$store.state.httpError;
-    }
+   
   },
   methods:{
-  /* httpGet() {
-     this.getTest('mock').then(response => {
-       this.Data=response.data;
-     });
-     
-    console.log('测试方法');
-   }
-   */
-  
     prev(){
       this.$router.go(-1);
     }

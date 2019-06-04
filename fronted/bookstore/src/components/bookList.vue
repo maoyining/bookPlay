@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import myfooter from './footer.vue'
+
 import booksTemp from './books.vue'
 export default {
      data () {
@@ -21,7 +21,7 @@ export default {
     }
   },
 
-  components:{myfooter,booksTemp},
+  components:{booksTemp},
   sockets:{
     USER_INFO(data){
       this.info=data
