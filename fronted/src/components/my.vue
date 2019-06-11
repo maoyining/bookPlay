@@ -8,11 +8,11 @@
             
         </div>
        
-         <div style="border-bottom: 1px solid rgba(7, 17,27, 0.2)"></div>
+        
         <div class="message" v-if="admin">
             <div class="message_item" style="height:16px;padding-left:10px;"><img src="/static/images/添加.png"></div>
             <div class="message_item"><router-link to='/add' style="text-decoration:none;color:black"><h4>添加图书</h4></router-link></div>
-            <div class="message_item" style="margin-left:265px">></div>
+           
         </div>
         <form>
             <fieldset>
@@ -30,25 +30,14 @@
                         <label for="birthdaty">生日</label>
                             <input type="text" id="birthday" placeholder="birthday"/>
                     </div>
-                    <div class="col-sm">
-                        <label for="address">住址</label>
-                            <input type="text" id="address" placeholder="address"/>
-                    </div>
+                    
                
              </fieldset>
         </form>
-        
-        
-        
-      
-        
-        
-        
-        
-        
+            <myfooter></myfooter>
     </div>
    
-    <myfooter></myfooter>
+
     </div>
 </template>
 <script>
@@ -137,7 +126,7 @@ export default {
     flex-flow: row;
     
     margin-top: 10px;
-    margin-bottom: 10px;
+   
 }
 .userImg{
     display: flex;

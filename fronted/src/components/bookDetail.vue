@@ -17,7 +17,7 @@
             </div>
         </div>
         
-        <div class="footerdetail" v-if="!admin" style="margin-top:180px;">
+        <div class="footerdetail" v-if="!admin" >
              
              <div class="citys"  v-if="!collect" @click="like()" style="align-item:center"><img src="/static/images/收藏.png" ><div> 加入书桌</div> </div>
              <div class="citys"  v-if="collect" @click="unlike()" ><img src="/static/images/收藏-1.png" ><div> 移除书桌</div> </div>

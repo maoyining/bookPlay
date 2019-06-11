@@ -20,7 +20,6 @@ export default {
         return {
             msg: '欢迎来到书城',
             booklist: [],
-            
             userid:'',
             
             
@@ -62,6 +61,7 @@ export default {
   }
 
 }
+
 </script>
 <style>
 *{
@@ -74,6 +74,7 @@ export default {
   flex-flow: row wrap;
   width:100%;
   padding: 10px;
+  margin-left: 10px;
   
 }
 .item{
