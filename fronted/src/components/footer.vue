@@ -6,7 +6,7 @@
              <div class="city" ><router-link to='/my' style="text-decoration:none;color:black"><img src="/static/images/我的鸭.png"><div > 我的</div></router-link> </div>
            </div>
 -->
-<div>
+<div class="footers">
   <footer >
      
     <div class="container" style="width:100%">
@@ -19,6 +19,7 @@
     </div>
     </div>
    
+  
   </footer>
 </div>
 
@@ -42,5 +43,10 @@
  
 }
 */
+.footers{
+  position:fixed;
+  bottom:0px;
+  width:100%;
+}
 </style>
 
