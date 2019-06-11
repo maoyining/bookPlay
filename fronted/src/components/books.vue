@@ -4,8 +4,8 @@
         
           <div class="books"  >
              <div class="item" v-for="(name,index) in booklist " :key="index" @click="toBookDetail(name.id)" > 
-                 <img v-bind:src=" name.imageUrl| changeUrl" alt=" " style="height:100px">
-                   <div > {{ name.bookName }} </div> </div>
+                 <img v-bind:src=" name.imageUrl| changeUrl" alt=" " style="height:100px;">
+                   <div class="itemName"> {{ name.bookName }} </div> </div>
            </div>
    
     </div>
@@ -78,9 +78,17 @@ export default {
   
 }
 .item{
-
+  display:table-cell;
   width:33%;
   height: 150px;
   text-align: center;
+  overflow: hidden;
+}
+.itemName{
+  -webkit-line-clamp:2;
+  
+  
+  
+  
 }
 </style>

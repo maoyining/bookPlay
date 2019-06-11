@@ -1,7 +1,7 @@
 <template>
-  <div class="container">
+  
     <div class="my">
-        <p style="text-align:right" @click="changeInformation()">编辑</p>
+      <!--  <p style="text-align:right" @click="changeInformation()">编辑</p>-->
         <div class="user">
             <h2 v-if="loginin" class="userName" @click="logout1">{{userName}}</h2>
             <h2 v-if="!loginin" class="userName"><router-link to='/login' style="text-decoration:none;color:black">登录</router-link></h2>
@@ -38,7 +38,7 @@
     </div>
    
 
-    </div>
+   
 </template>
 <script>
 import myfooter from './footer.vue'
@@ -105,7 +105,7 @@ export default {
 .my{
   display: flex;
   flex-flow: column;
-  width:100%;
+  
 }
 .items{
    height: 40px;

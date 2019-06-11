@@ -11,6 +11,10 @@ import VueRouter from 'vue-router';
 import socketio from 'socket.io-client';
 import VueSocketio from 'vue-socket.io';
 
+
+const datasource=require("./service/api")
+Vue.prototype.$dataSource= datasource.default
+
 Vue.component("myfooter",myfooter);
 
 

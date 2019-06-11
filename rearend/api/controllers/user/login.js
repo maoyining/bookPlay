@@ -34,15 +34,15 @@ module.exports = {
      // password: inputs.password,
     })
 
-  
+    
     try{
       await sails.helpers.passwords.checkPassword(inputs.password, userInfo.password)
-      
+      console.log(userInfo);
       this.req.session.userId = userInfo.id
       this.req.session.admin = userInfo.admin
       return exits.success({ info: userInfo })
     }catch(err){
-      return exits.fail();
+      return exits.fail(err);
     }
   }
 }

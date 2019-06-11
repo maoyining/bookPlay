@@ -33,7 +33,7 @@
       </div>
     </div>
  
-           <button form-type='submit' @click="submitLogin($event)" >登录</button>
+           <button form-type='submit' @click="submitLogin()" >登录</button>
             <button><router-link to="/register" style="text-decoration:none;">注册</router-link></button>
         </form>
         </div>
@@ -55,6 +55,17 @@ export default {
     } 
     } ,
     methods:{
+    async submitLogin() {
+     
+
+      let data = await this.$dataSource.Login(
+        this.username,
+        this.password
+      );
+      console.log(data);
+            
+    },
+    /*
     submitLogin(event){
         let that=this;
         event.preventDefault();
@@ -100,10 +111,11 @@ export default {
            // console.log(error.status);
         })
         
-    },
+    },*/
     }
+    
 
-};
+}
 
 </script>
 <style>

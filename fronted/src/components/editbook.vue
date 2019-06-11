@@ -3,7 +3,7 @@
    
      <div class="editBooks" >
            
-                <p ><img v-bind:src=" book.imageUrl| changeUrl" alt=" " style="height:100px"></p>
+                <div ><img v-bind:src=" book.imageUrl| changeUrl" alt=" " style="height:100px"></div>
                 <form action='' method="post">
                     <div class="edit_item"><label class="label_input">图书名称</label><input   v-model="book.bookName" ></div>
                     <div class="edit_item"><label class="label_input">图书价格</label><input  v-model="book.bookPrice" ></div>
@@ -135,7 +135,6 @@ export default {
     justify-content: center;
     align-items: center;
     height:100vh;
-    background-image: url(/static/images/timg.jpg)
 }
 
 label{

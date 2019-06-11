@@ -105,7 +105,7 @@ export default {
     justify-content: center;
     align-items: center;
     height:100vh;
-    background-image: url(/static/images/timg.jpg)
+    
 }
 .Add{
     height:500px;

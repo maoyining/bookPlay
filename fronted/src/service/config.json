@@ -1,0 +1,9 @@
+{
+    "domain_b":"http://localhost:1337",
+    "domain":"http://localhost:1337",
+    "Signin":"/user",
+    "Login":"/login",
+    "Logout":"/logout"
+
+   
+}
