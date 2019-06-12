@@ -30,7 +30,7 @@ export default {
     let that=this;
     axios({
             method:'GET',
-            url:'/api/books',
+            url:'/books',
            
         })
         .then(function(response){

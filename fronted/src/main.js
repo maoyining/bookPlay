@@ -10,10 +10,12 @@ import VueResource from 'vue-resource'
 import VueRouter from 'vue-router';
 import socketio from 'socket.io-client';
 import VueSocketio from 'vue-socket.io';
+import { request } from 'https';
 
 
 const datasource=require("./service/api")
 Vue.prototype.$dataSource= datasource.default
+Vue.prototype.$request=request
 
 Vue.component("myfooter",myfooter);
 
@@ -30,7 +32,7 @@ Vue.use(VueResource)
 
 
  
-
+console.log('req',datasource);
 
 Vue.filter('changeUrl',function(value){
   if(value=='')

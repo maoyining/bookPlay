@@ -24,6 +24,7 @@ axios.defaults.baseURL="http://localhost:1337"
  * @param {*} form FORMDATA
  */
 export const request= async (method, url, payload={}) => {
+    console.log(url);
   try{
     method = method.toLowerCase()
     let queryUrl = domain+url
