@@ -1,18 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-
-import loginin from '@/components/loginin.vue'
-import bookList from '@/components/bookList.vue'
-
-import register from '@/components/register.vue'
-import bookDetail from '@/components/bookDetail.vue'
-import addBook from '@/components/addBook.vue'
-import footer from '@/components/footer.vue' 
-import mylike from '@/components/mylike.vue'
-import my from '@/components/my.vue'
-import adminuser from '@/components/bookControl.vue'
-import editbook from '@/components/editbook.vue'
-import editImg from '@/components/editImg.vue'
+import Books from '@/components/books.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -20,60 +8,55 @@ export default new Router({
     {
       path: '/login',
       name: 'login',
-      component: loginin
+      component:() =>import('../views/Login.vue')
     },
     {
       path:'/books/:id',
       name:'booklist',
-      component:bookList
+      component:() =>import('../views/bookList.vue')
     },
     {
       path:'/',
       name:'books',
-      component:bookList,
-      footer
+      component:() =>import('../views/bookList.vue')
     },
     {
       path:'/register',
       name:'register',
-      component:register
+      component:() =>import('../views/Register.vue')
     },
     {
       path:'/books/show/:id',
       name:'bookDetail',
-      component:bookDetail
+      component:() =>import('../views/bookDetail.vue')
     },
     {
       path:'/add',
       name:'addBook',
-      component:addBook
+      component:() =>import('../views/addBook.vue')
 
     },
     {
       path:'/mylike',
       name:'mylike',
-      component:mylike
+      component:() =>import('../views/mylike.vue')
     },
     {
       path:'/my',
       name:'my',
-      component:my
+      component:() =>import('../views/my.vue')
     },
     {
       path:'/admin',
       name:'admin',
-      component:adminuser
+      component:() =>import('../views/bookControl.vue')
     },
     {
       path:'/edit/:id',
       name:'edit',
-      component:editbook
+      component:() =>import('../views/editbook.vue')
     },
-    {
-      path:'/edit/image/:id',
-      name:'editImg',
-      component:editImg
-    }
+    
     
     
   ]

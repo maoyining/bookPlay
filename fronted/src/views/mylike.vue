@@ -1,6 +1,6 @@
 <template>
     <div class="mylike">
-      
+
         <div >
           <div class="footer1"  >
              <div class="city1" v-for="(name,index) in booklist " :key="index" @click="toBookDetail(name.id) "> <img :src="name.imageUrl|changeUrl" alt="" style="height:100px">
@@ -13,7 +13,7 @@
 
 <script>
 import axios from 'axios';
-import myfooter from './footer.vue'
+
 export default {
      data () {
         return {
@@ -27,7 +27,7 @@ export default {
             
     }
   },
- components:{myfooter},
+ 
   mounted:function(){
     let that=this;
     that.userid=that.$store.state.userid;

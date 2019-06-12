@@ -3,7 +3,7 @@
     
    <div @click="prev" style="text-align:left;margin-left:20px;">  </div>
     <router-view/>
-    
+    <myfooter></myfooter>
   
   </div>
 </template>

@@ -41,7 +41,7 @@
    
 </template>
 <script>
-import myfooter from './footer.vue'
+
 import axios from 'axios';
 export default {
     data(){

@@ -1,16 +1,6 @@
 <template>
         <div class="loginin" >
-           <!--
-                <form action='' method="post">
-                    <p font="36px">注册</p>
-                    <div>用户名<input v-model="username" placeholder="用户名" value="username" class="input"></div>
-                    <div>密码<input v-model="password" placeholder="请输入密码" type="password" value="password" class="input"></div>
-                     <div>邮箱<input v-model="email" placeholder="邮箱" value="email" class="input"></div>
-                    <div id="login_control">
-                        <button form-type='submit' @click="submitRegister($event)">注册</button>
-                        <button><router-link to="/" style="text-decoration:none;color:black"> 取消</router-link></button>
-                    </div>
-                </form>-->
+         
             <form action="" method="post">
             <fieldset>
                 <legend>注册</legend>
