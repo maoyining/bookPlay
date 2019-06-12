@@ -1,23 +1,7 @@
 <template>
     <div>
         <div class="loginin" >
-           <!--
-          <div class="login">
-                <h1 style="text-align:center;"><strong>Login</strong></h1>
-                <form action='' method="post" >
-                    
-                    <input v-model="username" placeholder="用户名" class="login_item">
-                    <input v-model="password" placeholder="请输入密码" type="password" class="login_item">
-                     <div class="login_control">
-                        <p class= "control_item" form-type='submit' @click="submitLogin($event)" ><strong>登录</strong></p>
-                   
-                        <p class= "control_item"><router-link to="/register" style="text-decoration:none;"><strong>我要注册</strong></router-link></p>
-                        <p class= "control_item"><router-link to="/" style="text-decoration:none;"><strong>取消登录</strong></router-link></p>
-                    </div>
-                    
-                </form>
-                <div style="height:10px;width:200px;"></div>
-            </div>-->
+         
         <div class="login">
             <h1 style="text-align:center;color:white"><strong>Login</strong></h1>
              <form action='' method="post" >
