@@ -6,11 +6,11 @@
              <div class="city" ><router-link to='/my' style="text-decoration:none;color:black"><img src="/static/images/我的鸭.png"><div > 我的</div></router-link> </div>
            </div>
 -->
-<div class="footers">
+<div>
   <footer >
      
-    <div class="container" style="width:100%">
-    <div class="row" style="width:100%">
+    <div class="container">
+    <div class="row">
            <div class="col-sm-4" ><router-link to="/" style="text-decoration:none;color:black"><img src="/static/images/领读.png"><div >书城</div></router-link> </div>
            
            <div class="col-sm-4" ><router-link to="/mylike" style="text-decoration:none;color:black"><img src="/static/images/书桌.png"><div> 我的收藏</div> </router-link></div>
@@ -19,13 +19,11 @@
     </div>
     </div>
    
-  
   </footer>
 </div>
 
 </template>
 <style>
-/*
 .footer1{
   position: fixed;
   bottom: 0;
@@ -41,12 +39,6 @@
 .city{
  flex:0 0 33%;
  
-}
-*/
-.footers{
-  position:fixed;
-  bottom:0px;
-  width:100%;
 }
 </style>
 

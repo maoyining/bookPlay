@@ -2,8 +2,8 @@
 <div>
    
      <div class="editBooks" >
-           
-                <div ><img v-bind:src=" book.imageUrl| changeUrl" alt=" " style="height:100px"></div>
+            <div class="Edit">
+                <p ><img v-bind:src=" book.imageUrl| changeUrl" alt=" " style="height:100px"></p>
                 <form action='' method="post">
                     <div class="edit_item"><label class="label_input">图书名称</label><input   v-model="book.bookName" ></div>
                     <div class="edit_item"><label class="label_input">图书价格</label><input  v-model="book.bookPrice" ></div>
@@ -23,7 +23,7 @@
                 </form>
             </div>
         </div>
-
+</div>
 </template>
 <script>
 import axios from 'axios';
@@ -135,8 +135,12 @@ export default {
     justify-content: center;
     align-items: center;
     height:100vh;
+    background-image: url(/static/images/timg.jpg)
 }
-
+.Edit{
+    height:500px;
+   
+}
 label{
     height:30px;
     width:100px;

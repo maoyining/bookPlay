@@ -1,6 +1,18 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Books from '@/components/books.vue'
+
+
+
+
+
+
+
+
+import mylike from '../views/mylike.vue'
+
+
+import editbook from '../views/editbook.vue'
+
 Vue.use(Router)
 
 export default new Router({
@@ -8,7 +20,7 @@ export default new Router({
     {
       path: '/login',
       name: 'login',
-      component:() =>import('../views/Login.vue')
+      component: () =>import('../views/Login.vue')
     },
     {
       path:'/books/:id',
@@ -19,6 +31,7 @@ export default new Router({
       path:'/',
       name:'books',
       component:() =>import('../views/bookList.vue')
+     
     },
     {
       path:'/register',
@@ -39,7 +52,7 @@ export default new Router({
     {
       path:'/mylike',
       name:'mylike',
-      component:() =>import('../views/mylike.vue')
+      component:mylike
     },
     {
       path:'/my',
@@ -54,10 +67,9 @@ export default new Router({
     {
       path:'/edit/:id',
       name:'edit',
-      component:() =>import('../views/editbook.vue')
+      component:editbook
     },
-    
-    
+   
     
   ]
 })

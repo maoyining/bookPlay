@@ -1,6 +1,6 @@
 <template>
     <div class="mylike">
-
+      
         <div >
           <div class="footer1"  >
              <div class="city1" v-for="(name,index) in booklist " :key="index" @click="toBookDetail(name.id) "> <img :src="name.imageUrl|changeUrl" alt="" style="height:100px">

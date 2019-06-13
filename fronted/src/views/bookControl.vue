@@ -11,7 +11,7 @@
     </div>
 </template>
 <script>
-
+import bookTemp from '@/components/books.vue'
 export default {
     data(){
         return{

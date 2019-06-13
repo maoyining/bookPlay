@@ -3,7 +3,6 @@
     
    <div @click="prev" style="text-align:left;margin-left:20px;">  </div>
     <router-view/>
-    
   
   </div>
 </template>
@@ -69,8 +68,7 @@ var that=this;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  height:100%;
-  width:100%;
+
 }
 
 </style>

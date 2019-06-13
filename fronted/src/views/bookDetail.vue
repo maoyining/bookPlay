@@ -1,8 +1,8 @@
 <template>
     <div class="bookDetail">
-        <div class="container" style="margin-top:20px;">
+        <div class="container">
             <div class="book">
-                <img v-bind:src=" book.imageUrl| changeUrl" alt="" style="height:196px">
+                <img v-bind:src=" book.imageUrl| changeUrl" alt="" style="height:150px">
             </div>
             <div class="book">
                 <div class="items"> <h3 >{{book.bookName}} </h3></div>
@@ -17,13 +17,13 @@
             </div>
         </div>
         
-        <div class="footerdetail" v-if="!admin" >
+        <div class="footerdetail" v-if="!admin">
+            
+             <div class="city"  v-if="!collect" @click="like()"><img src="/static/images/收藏.png" ><div> 加入书桌</div> </div>
+             <div class="city"  v-if="collect" @click="unlike()"><img src="/static/images/收藏-1.png" ><div> 移除书桌</div> </div>
              
-             <div class="citys"  v-if="!collect" @click="like()" style="align-item:center"><img src="/static/images/收藏.png" ><div> 加入书桌</div> </div>
-             <div class="citys"  v-if="collect" @click="unlike()" ><img src="/static/images/收藏-1.png" ><div> 移除书桌</div> </div>
-            </div>
-       
-        <div  class="footerdetail" v-if="admin" >
+        </div>
+        <div  class="footerdetail" v-if="admin">
             <div class="city"  v-if="!collect" @click="like()"><img src="/static/images/收藏.png" ><div> 加入书桌</div> </div>
              <div class="city"  v-if="collect" @click="unlike()"><img src="/static/images/收藏-1.png" ><div> 移除书桌</div> </div>
              <div class="city" @click="tochange()"><img src="/static/images/修改鸭.png"><div > 修改图书</div> </div>
@@ -199,12 +199,12 @@ export default {
    height:40px;
 }
 .footerdetail{
- /* margin-bottom: 100px;*/
+
   display: flex;
   flex-flow: row wrap;
   width:100%;
- /* border-top: 1px solid rgba(7, 17,27, 0.2);
-  /*background-color: #f0f0f0;*/
+  border-top: 1px solid rgba(7, 17,27, 0.2);
+  background-color: #f0f0f0;
   padding-top: 5px;
   height:60px;
 }
@@ -212,9 +212,6 @@ export default {
 
  flex:0 0 33%;
 
-}
-.citys{
-    flex:0 0 100%;
 }
 
 </style>

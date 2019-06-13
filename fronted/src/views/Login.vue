@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="loginin" >
-         
+          
         <div class="login">
             <h1 style="text-align:center;color:white"><strong>Login</strong></h1>
              <form action='' method="post" >
@@ -17,7 +17,7 @@
       </div>
     </div>
  
-           <button form-type='submit' @click="submitLogin()" >登录</button>
+           <button form-type='submit' @click="submitLogin($event)" >登录</button>
             <button><router-link to="/register" style="text-decoration:none;">注册</router-link></button>
         </form>
         </div>
@@ -39,17 +39,6 @@ export default {
     } 
     } ,
     methods:{
-    async submitLogin() {
-     
-     let that=this;
-      let data = await that.$dataSource.Login(
-        this.username,
-        this.password
-      );
-      console.log(data);
-            
-    },
-    /*
     submitLogin(event){
         let that=this;
         event.preventDefault();
@@ -71,10 +60,7 @@ export default {
             console.log(response.data);
             if(response.data=='fail to login')
               alert(response.data);
-            //that.useid=response.data.info.id;
-            //console.log("我是用户的id"+ that.useid);
-            
-            //console.log(that.$store.state.userid);
+           
             that.$store.dispatch('getNewLoginin',true); //登录状态设置为true
             console.log(that.$store.state.loginin);
 
@@ -95,11 +81,10 @@ export default {
            // console.log(error.status);
         })
         
-    },*/
+    },
     }
-    
 
-}
+};
 
 </script>
 <style>
